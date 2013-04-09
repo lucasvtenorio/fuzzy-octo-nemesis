@@ -12,11 +12,13 @@
 		02C4C992170DCF0C001B2FC5 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 02C4C990170DCF0C001B2FC5 /* InfoPlist.strings */; };
 		02C4C994170DCF0C001B2FC5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 02C4C993170DCF0C001B2FC5 /* main.m */; };
 		02C4C998170DCF0C001B2FC5 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 02C4C996170DCF0C001B2FC5 /* Credits.rtf */; };
-		02C4C99B170DCF0C001B2FC5 /* AWAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 02C4C99A170DCF0C001B2FC5 /* AWAppDelegate.m */; };
+		02C4C99B170DCF0C001B2FC5 /* AWAppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 02C4C99A170DCF0C001B2FC5 /* AWAppDelegate.mm */; };
 		02C4C99E170DCF0C001B2FC5 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 02C4C99C170DCF0C001B2FC5 /* MainMenu.xib */; };
 		02C4C9A5170DD094001B2FC5 /* teste.png in Resources */ = {isa = PBXBuildFile; fileRef = 02C4C9A4170DD094001B2FC5 /* teste.png */; };
 		02C4C9A8170DE6EC001B2FC5 /* AWDrawerView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 02C4C9A7170DE6EC001B2FC5 /* AWDrawerView.mm */; };
 		02C4C9AA170DE7A1001B2FC5 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02C4C9A9170DE7A1001B2FC5 /* OpenGL.framework */; };
+		02F38D741714495B0016A540 /* Matrix.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 02F38D721714495B0016A540 /* Matrix.cpp */; };
+		02F38D7717145A680016A540 /* Vector.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 02F38D7517145A680016A540 /* Vector.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,12 +35,16 @@
 		02C4C995170DCF0C001B2FC5 /* Render-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Render-Prefix.pch"; sourceTree = "<group>"; };
 		02C4C997170DCF0C001B2FC5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
 		02C4C999170DCF0C001B2FC5 /* AWAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AWAppDelegate.h; sourceTree = "<group>"; };
-		02C4C99A170DCF0C001B2FC5 /* AWAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AWAppDelegate.m; sourceTree = "<group>"; };
+		02C4C99A170DCF0C001B2FC5 /* AWAppDelegate.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = AWAppDelegate.mm; sourceTree = "<group>"; };
 		02C4C99D170DCF0C001B2FC5 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		02C4C9A4170DD094001B2FC5 /* teste.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = teste.png; sourceTree = "<group>"; };
 		02C4C9A6170DE6EC001B2FC5 /* AWDrawerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWDrawerView.h; sourceTree = "<group>"; };
 		02C4C9A7170DE6EC001B2FC5 /* AWDrawerView.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = AWDrawerView.mm; sourceTree = "<group>"; };
 		02C4C9A9170DE7A1001B2FC5 /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
+		02F38D721714495B0016A540 /* Matrix.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Matrix.cpp; sourceTree = "<group>"; };
+		02F38D731714495B0016A540 /* Matrix.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Matrix.h; sourceTree = "<group>"; };
+		02F38D7517145A680016A540 /* Vector.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Vector.cpp; sourceTree = "<group>"; };
+		02F38D7617145A680016A540 /* Vector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Vector.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,9 +100,10 @@
 		02C4C98D170DCF0C001B2FC5 /* Render */ = {
 			isa = PBXGroup;
 			children = (
+				02F38D71171449480016A540 /* math */,
 				02C4C9A4170DD094001B2FC5 /* teste.png */,
 				02C4C999170DCF0C001B2FC5 /* AWAppDelegate.h */,
-				02C4C99A170DCF0C001B2FC5 /* AWAppDelegate.m */,
+				02C4C99A170DCF0C001B2FC5 /* AWAppDelegate.mm */,
 				02C4C99C170DCF0C001B2FC5 /* MainMenu.xib */,
 				02C4C98E170DCF0C001B2FC5 /* Supporting Files */,
 				02C4C9A6170DE6EC001B2FC5 /* AWDrawerView.h */,
@@ -117,6 +124,17 @@
 				02C4C996170DCF0C001B2FC5 /* Credits.rtf */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		02F38D71171449480016A540 /* math */ = {
+			isa = PBXGroup;
+			children = (
+				02F38D721714495B0016A540 /* Matrix.cpp */,
+				02F38D731714495B0016A540 /* Matrix.h */,
+				02F38D7517145A680016A540 /* Vector.cpp */,
+				02F38D7617145A680016A540 /* Vector.h */,
+			);
+			name = math;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -186,9 +204,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				02C4C994170DCF0C001B2FC5 /* main.m in Sources */,
-				02C4C99B170DCF0C001B2FC5 /* AWAppDelegate.m in Sources */,
+				02C4C99B170DCF0C001B2FC5 /* AWAppDelegate.mm in Sources */,
 				02C4C9A8170DE6EC001B2FC5 /* AWDrawerView.mm in Sources */,
 				022E0EFD170E65F9002183BD /* AWCanvas.cpp in Sources */,
+				02F38D741714495B0016A540 /* Matrix.cpp in Sources */,
+				02F38D7717145A680016A540 /* Vector.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
