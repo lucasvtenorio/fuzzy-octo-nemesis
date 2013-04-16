@@ -8,6 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		022E0EFD170E65F9002183BD /* AWCanvas.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 022E0EFB170E65F9002183BD /* AWCanvas.cpp */; };
+		02320680171DCE870014C782 /* Transformation.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0232067E171DCE870014C782 /* Transformation.cpp */; };
+		02320686171DD2DB0014C782 /* Point3D.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 02320684171DD2DB0014C782 /* Point3D.cpp */; };
+		02320689171DD5990014C782 /* Vector3D.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 02320687171DD5990014C782 /* Vector3D.cpp */; };
+		02320690171DE9610014C782 /* Camera.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0232068E171DE9610014C782 /* Camera.cpp */; };
+		02320693171DEE360014C782 /* PerspectiveCamera.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 02320691171DEE360014C782 /* PerspectiveCamera.cpp */; };
+		02320696171DEEB30014C782 /* Point2D.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 02320694171DEEB30014C782 /* Point2D.cpp */; };
 		02C4C988170DCF0C001B2FC5 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02C4C987170DCF0C001B2FC5 /* Cocoa.framework */; };
 		02C4C992170DCF0C001B2FC5 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 02C4C990170DCF0C001B2FC5 /* InfoPlist.strings */; };
 		02C4C994170DCF0C001B2FC5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 02C4C993170DCF0C001B2FC5 /* main.m */; };
@@ -24,6 +30,18 @@
 /* Begin PBXFileReference section */
 		022E0EFB170E65F9002183BD /* AWCanvas.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AWCanvas.cpp; sourceTree = "<group>"; };
 		022E0EFC170E65F9002183BD /* AWCanvas.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWCanvas.h; sourceTree = "<group>"; };
+		0232067E171DCE870014C782 /* Transformation.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Transformation.cpp; sourceTree = "<group>"; };
+		0232067F171DCE870014C782 /* Transformation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Transformation.h; sourceTree = "<group>"; };
+		02320684171DD2DB0014C782 /* Point3D.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Point3D.cpp; sourceTree = "<group>"; };
+		02320685171DD2DB0014C782 /* Point3D.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Point3D.h; sourceTree = "<group>"; };
+		02320687171DD5990014C782 /* Vector3D.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Vector3D.cpp; sourceTree = "<group>"; };
+		02320688171DD5990014C782 /* Vector3D.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Vector3D.h; sourceTree = "<group>"; };
+		0232068E171DE9610014C782 /* Camera.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Camera.cpp; sourceTree = "<group>"; };
+		0232068F171DE9610014C782 /* Camera.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Camera.h; sourceTree = "<group>"; };
+		02320691171DEE360014C782 /* PerspectiveCamera.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PerspectiveCamera.cpp; sourceTree = "<group>"; };
+		02320692171DEE360014C782 /* PerspectiveCamera.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PerspectiveCamera.h; sourceTree = "<group>"; };
+		02320694171DEEB30014C782 /* Point2D.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Point2D.cpp; sourceTree = "<group>"; };
+		02320695171DEEB30014C782 /* Point2D.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Point2D.h; sourceTree = "<group>"; };
 		02C4C984170DCF0C001B2FC5 /* Render.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Render.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		02C4C987170DCF0C001B2FC5 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		02C4C98A170DCF0C001B2FC5 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -60,6 +78,32 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0232067D171DCE730014C782 /* geometry */ = {
+			isa = PBXGroup;
+			children = (
+				0232067E171DCE870014C782 /* Transformation.cpp */,
+				0232067F171DCE870014C782 /* Transformation.h */,
+				02320684171DD2DB0014C782 /* Point3D.cpp */,
+				02320685171DD2DB0014C782 /* Point3D.h */,
+				02320687171DD5990014C782 /* Vector3D.cpp */,
+				02320688171DD5990014C782 /* Vector3D.h */,
+				02320694171DEEB30014C782 /* Point2D.cpp */,
+				02320695171DEEB30014C782 /* Point2D.h */,
+			);
+			name = geometry;
+			sourceTree = "<group>";
+		};
+		0232068D171DE9500014C782 /* rendering */ = {
+			isa = PBXGroup;
+			children = (
+				0232068E171DE9610014C782 /* Camera.cpp */,
+				0232068F171DE9610014C782 /* Camera.h */,
+				02320691171DEE360014C782 /* PerspectiveCamera.cpp */,
+				02320692171DEE360014C782 /* PerspectiveCamera.h */,
+			);
+			name = rendering;
+			sourceTree = "<group>";
+		};
 		02C4C97B170DCF0C001B2FC5 = {
 			isa = PBXGroup;
 			children = (
@@ -100,6 +144,8 @@
 		02C4C98D170DCF0C001B2FC5 /* Render */ = {
 			isa = PBXGroup;
 			children = (
+				0232068D171DE9500014C782 /* rendering */,
+				0232067D171DCE730014C782 /* geometry */,
 				02F38D71171449480016A540 /* math */,
 				02C4C9A4170DD094001B2FC5 /* teste.png */,
 				02C4C999170DCF0C001B2FC5 /* AWAppDelegate.h */,
@@ -209,6 +255,12 @@
 				022E0EFD170E65F9002183BD /* AWCanvas.cpp in Sources */,
 				02F38D741714495B0016A540 /* Matrix.cpp in Sources */,
 				02F38D7717145A680016A540 /* Vector.cpp in Sources */,
+				02320680171DCE870014C782 /* Transformation.cpp in Sources */,
+				02320686171DD2DB0014C782 /* Point3D.cpp in Sources */,
+				02320689171DD5990014C782 /* Vector3D.cpp in Sources */,
+				02320690171DE9610014C782 /* Camera.cpp in Sources */,
+				02320693171DEE360014C782 /* PerspectiveCamera.cpp in Sources */,
+				02320696171DEEB30014C782 /* Point2D.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

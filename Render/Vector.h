@@ -12,47 +12,37 @@
 
 #include "Matrix.h"
 
-#include <cassert>
-#include <cmath>
-
 namespace math{
-    template <class Number>
-    class Vector : public Matrix<Number> {
+    
+    class Vector : public Matrix {
 
     public:
-        Vector(int n) : Matrix<Number>(n, 1){
-            
+        Vector(int n);
+
+        Vector(const Matrix & m);
+
+        inline double & operator()(int i){
+            return Matrix::operator()(i, 0);
         }
 
-        Vector(Matrix<Number> m) : Matrix<Number>(m.rowCount(), 1){
-            for(int i = 0; i < m.rowCount(); i++){
-                this->operator()(i) = m(i, 0);
-            }
+        inline const double & operator()(int i) const{
+            return Matrix::operator()(i, 0);
         }
 
-        Number & operator()(int i){
-            return Matrix<Number>::operator()(i, 0);
-        }
-
-        int dimension(){
+        inline int dimension() const{
             return this->rowCount();
         }
 
-        Vector<Number> operator*(const Vector<Number> & v){
-            Number ret = 0;
-            for(int i = 0; i < dimension(); i++){
-                ret += (*this)(i)*v(i);
-            }
-            return ret;
+        double operator*(const Vector & v) const;
+
+        double length() const;
+
+        inline double operator!() const{
+            return this->length();
         }
 
-        Number length(){
-            return sqrt((*this)*(*this));
-        }
-
-        Number operator!(){
-            
-        }
+        Vector normalized() const;
+        Vector projection(const Vector & v) const;
 
     };
 }
