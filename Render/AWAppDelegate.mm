@@ -31,7 +31,6 @@
     geometry::Vector3D resv = t.apply(v);
     res.print();
     resv.print();
-    
 }
 
 @end

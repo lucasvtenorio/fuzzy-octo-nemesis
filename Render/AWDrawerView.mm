@@ -8,10 +8,10 @@
 
 #import "AWDrawerView.h"
 #include <OpenGL/gl.h>
-#include "AWCanvas.h"
+#include "Canvas.h"
 
 @implementation AWDrawerView {
-    AWCanvas *canvas;
+    drawing::Canvas *canvas;
 }
 
 
@@ -35,26 +35,19 @@
     self.lineWidth = 1;
     self.width = self.frame.size.width;
     self.height = self.frame.size.height;
-    canvas = new AWCanvas(self.width, self.height);
+    canvas = new drawing::Canvas(1440, 900);
 }
 
 
 
 -(void) drawRect: (NSRect) bounds
 {
-    canvas->getBuffer(^(unsigned char *buffer, int width, int height) {
-        dispatch_async(dispatch_get_main_queue(), ^{
-            glClearColor(0, 0, 0, 0);
-            glDisable(GL_DEPTH_TEST);
-            glClear(GL_COLOR_BUFFER_BIT);
-            glDrawPixels(width, height,GL_RGBA,GL_UNSIGNED_BYTE,buffer);
-            //[self drawBuffer];
-            glEnable(GL_DEPTH_TEST);
-            glFlush();
-        });
-    });
-    
-    
+    glClearColor(0, 0, 0, 0);
+    glDisable(GL_DEPTH_TEST);
+    glClear(GL_COLOR_BUFFER_BIT);
+    glDrawPixels(canvas->getWidth(),canvas->getHeight(),GL_RGBA,GL_UNSIGNED_BYTE,canvas->getBuffer());
+    glEnable(GL_DEPTH_TEST);
+    glFlush();
 }
 
 
@@ -64,7 +57,7 @@
 //    AWPoint end;
 //    end.x = (int)[theEvent locationInWindow].x;
 //    end.y = (int)[theEvent locationInWindow].y;
-    AWColor color = (AWColor) {255,255,255,255};
+    drawing::Color color = (drawing::Color) {255,255,255,255};
 //    NSLog(@"(%d, %d) (%d, %d)", origin.x, origin.y, end.x, end.y);
 //    [self lineWithOrigin:origin end:end andColor:color];
     int x = (int)[theEvent locationInWindow].x;
@@ -80,15 +73,6 @@
     }
     
     [self setNeedsDisplay:YES];
-}
-
-
-- (void) setFrame:(NSRect)frameRect  {
-    [super setFrame:frameRect];
-    canvas->setHeight(self.frame.size.height);
-    canvas->setWidth(self.frame.size.width);
-    self.height = self.frame.size.height;
-    self.width = self.frame.size.width;
 }
 
 @end

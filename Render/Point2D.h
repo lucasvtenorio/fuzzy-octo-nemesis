@@ -16,7 +16,7 @@ namespace geometry{
     private:
         math::Vector v;
     public:
-        Point2D(double x=0, double y=0);
+        Point2D(double x=0, double y=0, double d=1);
 
         inline double & x(){
             return v(0);
@@ -33,6 +33,15 @@ namespace geometry{
         inline const double & y() const{
             return v(1);
         }
+
+        inline double & depth(){
+            return v(2);
+        }
+
+        inline const double & depth() const{
+            return v(2);
+        }
+
         inline math::Vector asVector() const{
             math::Vector ret(2);
             ret(0) = x(), ret(1) = y();

@@ -23,7 +23,6 @@ namespace rendering{
             PerspectiveCamera(const geometry::Point3D & position, const geometry::Vector3D & direction, const geometry::Vector3D & head, double focalDistance, double cameraWidth, double cameraHeight);
 
             geometry::Point2D doTheDance(geometry::Point3D point);
-            
     };
 }
 

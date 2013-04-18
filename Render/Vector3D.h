@@ -48,6 +48,19 @@ namespace geometry{
             return ret;
         }
 
+        inline Vector3D crossProduct(const Vector3D & v) const{
+            return Vector3D(y()*v.z() - z()*v.y(), z()*v.x() - x()*v.z(), x()*v.y() - y()*v.x());
+        }
+
+        inline Vector3D operator%(const Vector3D & v) const{
+            return this->crossProduct(v);
+        }
+
+        inline Vector3D normalized() const{
+            math::Vector n = this->asVector().normalized();
+            return Vector3D(n(0), n(1), n(2));
+        }
+
         void print(){
             v.print();
         }

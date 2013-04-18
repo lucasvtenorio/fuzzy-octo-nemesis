@@ -8,9 +8,9 @@
 
 #include "Point2D.h"
 namespace geometry{
-    Point2D::Point2D(double x, double y):v(3){
+    Point2D::Point2D(double x, double y, double d):v(3){
         v(0) = x;
         v(1) = y;
-        v(2) = 1;
+        v(2) = d;
     }
 }

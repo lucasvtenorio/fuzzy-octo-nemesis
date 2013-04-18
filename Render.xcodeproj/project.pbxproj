@@ -7,7 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		022E0EFD170E65F9002183BD /* AWCanvas.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 022E0EFB170E65F9002183BD /* AWCanvas.cpp */; };
+		0206EE29172079B9008F5E51 /* ColorVector.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0206EE27172079B9008F5E51 /* ColorVector.cpp */; };
+		0206EE2C17207E1F008F5E51 /* LightSource.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0206EE2A17207E1F008F5E51 /* LightSource.cpp */; };
+		0206EE2F17209142008F5E51 /* Triangle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0206EE2D17209142008F5E51 /* Triangle.cpp */; };
+		0206EE3317209C7B008F5E51 /* World.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0206EE3117209C7A008F5E51 /* World.cpp */; };
+		0206EE3B1720A72B008F5E51 /* Mesh.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0206EE391720A72B008F5E51 /* Mesh.cpp */; };
+		0206EE3E1720A75A008F5E51 /* Object.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0206EE3C1720A759008F5E51 /* Object.cpp */; };
+		022E0EFD170E65F9002183BD /* Canvas.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 022E0EFB170E65F9002183BD /* Canvas.cpp */; };
 		02320680171DCE870014C782 /* Transformation.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0232067E171DCE870014C782 /* Transformation.cpp */; };
 		02320686171DD2DB0014C782 /* Point3D.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 02320684171DD2DB0014C782 /* Point3D.cpp */; };
 		02320689171DD5990014C782 /* Vector3D.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 02320687171DD5990014C782 /* Vector3D.cpp */; };
@@ -28,8 +34,23 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		022E0EFB170E65F9002183BD /* AWCanvas.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AWCanvas.cpp; sourceTree = "<group>"; };
-		022E0EFC170E65F9002183BD /* AWCanvas.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWCanvas.h; sourceTree = "<group>"; };
+		0206EE24172076D8008F5E51 /* Types.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Types.h; sourceTree = "<group>"; };
+		0206EE261720793A008F5E51 /* Color.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Color.h; sourceTree = "<group>"; };
+		0206EE27172079B9008F5E51 /* ColorVector.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ColorVector.cpp; sourceTree = "<group>"; };
+		0206EE28172079B9008F5E51 /* ColorVector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ColorVector.h; sourceTree = "<group>"; };
+		0206EE2A17207E1F008F5E51 /* LightSource.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LightSource.cpp; sourceTree = "<group>"; };
+		0206EE2B17207E1F008F5E51 /* LightSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LightSource.h; sourceTree = "<group>"; };
+		0206EE2D17209142008F5E51 /* Triangle.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Triangle.cpp; sourceTree = "<group>"; };
+		0206EE2E17209142008F5E51 /* Triangle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Triangle.h; sourceTree = "<group>"; };
+		0206EE3117209C7A008F5E51 /* World.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = World.cpp; sourceTree = "<group>"; };
+		0206EE3217209C7A008F5E51 /* World.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = World.h; sourceTree = "<group>"; };
+		0206EE381720A4A2008F5E51 /* IndexedTriangle.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IndexedTriangle.h; sourceTree = "<group>"; };
+		0206EE391720A72B008F5E51 /* Mesh.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Mesh.cpp; sourceTree = "<group>"; };
+		0206EE3A1720A72B008F5E51 /* Mesh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Mesh.h; sourceTree = "<group>"; };
+		0206EE3C1720A759008F5E51 /* Object.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Object.cpp; sourceTree = "<group>"; };
+		0206EE3D1720A75A008F5E51 /* Object.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Object.h; sourceTree = "<group>"; };
+		022E0EFB170E65F9002183BD /* Canvas.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Canvas.cpp; sourceTree = "<group>"; };
+		022E0EFC170E65F9002183BD /* Canvas.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Canvas.h; sourceTree = "<group>"; };
 		0232067E171DCE870014C782 /* Transformation.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Transformation.cpp; sourceTree = "<group>"; };
 		0232067F171DCE870014C782 /* Transformation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Transformation.h; sourceTree = "<group>"; };
 		02320684171DD2DB0014C782 /* Point3D.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Point3D.cpp; sourceTree = "<group>"; };
@@ -78,6 +99,43 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0206EE23172076C4008F5E51 /* util */ = {
+			isa = PBXGroup;
+			children = (
+				0206EE24172076D8008F5E51 /* Types.h */,
+			);
+			name = util;
+			sourceTree = "<group>";
+		};
+		0206EE2517207911008F5E51 /* drawing */ = {
+			isa = PBXGroup;
+			children = (
+				0206EE261720793A008F5E51 /* Color.h */,
+				022E0EFB170E65F9002183BD /* Canvas.cpp */,
+				022E0EFC170E65F9002183BD /* Canvas.h */,
+			);
+			name = drawing;
+			sourceTree = "<group>";
+		};
+		0206EE3017209BFC008F5E51 /* io */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = io;
+			sourceTree = "<group>";
+		};
+		0206EE371720A143008F5E51 /* data */ = {
+			isa = PBXGroup;
+			children = (
+				0206EE381720A4A2008F5E51 /* IndexedTriangle.h */,
+				0206EE391720A72B008F5E51 /* Mesh.cpp */,
+				0206EE3A1720A72B008F5E51 /* Mesh.h */,
+				0206EE3C1720A759008F5E51 /* Object.cpp */,
+				0206EE3D1720A75A008F5E51 /* Object.h */,
+			);
+			name = data;
+			sourceTree = "<group>";
+		};
 		0232067D171DCE730014C782 /* geometry */ = {
 			isa = PBXGroup;
 			children = (
@@ -89,6 +147,8 @@
 				02320688171DD5990014C782 /* Vector3D.h */,
 				02320694171DEEB30014C782 /* Point2D.cpp */,
 				02320695171DEEB30014C782 /* Point2D.h */,
+				0206EE2D17209142008F5E51 /* Triangle.cpp */,
+				0206EE2E17209142008F5E51 /* Triangle.h */,
 			);
 			name = geometry;
 			sourceTree = "<group>";
@@ -100,6 +160,12 @@
 				0232068F171DE9610014C782 /* Camera.h */,
 				02320691171DEE360014C782 /* PerspectiveCamera.cpp */,
 				02320692171DEE360014C782 /* PerspectiveCamera.h */,
+				0206EE27172079B9008F5E51 /* ColorVector.cpp */,
+				0206EE28172079B9008F5E51 /* ColorVector.h */,
+				0206EE2A17207E1F008F5E51 /* LightSource.cpp */,
+				0206EE2B17207E1F008F5E51 /* LightSource.h */,
+				0206EE3117209C7A008F5E51 /* World.cpp */,
+				0206EE3217209C7A008F5E51 /* World.h */,
 			);
 			name = rendering;
 			sourceTree = "<group>";
@@ -144,6 +210,10 @@
 		02C4C98D170DCF0C001B2FC5 /* Render */ = {
 			isa = PBXGroup;
 			children = (
+				0206EE371720A143008F5E51 /* data */,
+				0206EE3017209BFC008F5E51 /* io */,
+				0206EE2517207911008F5E51 /* drawing */,
+				0206EE23172076C4008F5E51 /* util */,
 				0232068D171DE9500014C782 /* rendering */,
 				0232067D171DCE730014C782 /* geometry */,
 				02F38D71171449480016A540 /* math */,
@@ -154,8 +224,6 @@
 				02C4C98E170DCF0C001B2FC5 /* Supporting Files */,
 				02C4C9A6170DE6EC001B2FC5 /* AWDrawerView.h */,
 				02C4C9A7170DE6EC001B2FC5 /* AWDrawerView.mm */,
-				022E0EFB170E65F9002183BD /* AWCanvas.cpp */,
-				022E0EFC170E65F9002183BD /* AWCanvas.h */,
 			);
 			path = Render;
 			sourceTree = "<group>";
@@ -252,7 +320,7 @@
 				02C4C994170DCF0C001B2FC5 /* main.m in Sources */,
 				02C4C99B170DCF0C001B2FC5 /* AWAppDelegate.mm in Sources */,
 				02C4C9A8170DE6EC001B2FC5 /* AWDrawerView.mm in Sources */,
-				022E0EFD170E65F9002183BD /* AWCanvas.cpp in Sources */,
+				022E0EFD170E65F9002183BD /* Canvas.cpp in Sources */,
 				02F38D741714495B0016A540 /* Matrix.cpp in Sources */,
 				02F38D7717145A680016A540 /* Vector.cpp in Sources */,
 				02320680171DCE870014C782 /* Transformation.cpp in Sources */,
@@ -261,6 +329,12 @@
 				02320690171DE9610014C782 /* Camera.cpp in Sources */,
 				02320693171DEE360014C782 /* PerspectiveCamera.cpp in Sources */,
 				02320696171DEEB30014C782 /* Point2D.cpp in Sources */,
+				0206EE29172079B9008F5E51 /* ColorVector.cpp in Sources */,
+				0206EE2C17207E1F008F5E51 /* LightSource.cpp in Sources */,
+				0206EE2F17209142008F5E51 /* Triangle.cpp in Sources */,
+				0206EE3317209C7B008F5E51 /* World.cpp in Sources */,
+				0206EE3B1720A72B008F5E51 /* Mesh.cpp in Sources */,
+				0206EE3E1720A75A008F5E51 /* Object.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

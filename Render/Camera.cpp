@@ -15,11 +15,13 @@ namespace rendering{
 
     Camera::Camera(const Point3D & position, const Vector3D & direction, const Vector3D & head){
         this->position = position;
-        this->direction = direction;
+        math::Vector d = direction.asVector().normalized();
+        math::Vector h = head.asVector().normalized();
 
-        math::Vector d = direction.asVector();
-        math::Vector h = head.asVector();
         h = h - h.projection(d);
+        
+        this->direction = Vector3D(d(0), d(1), d(2));
         this->head = Vector3D(h(0), h(1), h(2));
+        this->lateral = direction%head;
     }
 }

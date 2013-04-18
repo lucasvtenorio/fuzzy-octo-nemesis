@@ -19,7 +19,7 @@ namespace rendering{
             geometry::Point3D position;
             geometry::Vector3D direction;
             geometry::Vector3D head;
-
+            geometry::Vector3D lateral;
         public:
             Camera(const geometry::Point3D & position, const geometry::Vector3D & direction, const geometry::Vector3D & head);
             
