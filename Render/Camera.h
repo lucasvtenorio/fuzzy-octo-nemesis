@@ -15,19 +15,15 @@
 
 namespace rendering{
     class Camera{
-    private:
-        geometry::Point3D position;
-        geometry::Vector3D direction;
-        geometry::Vector3D head;
+        protected:
+            geometry::Point3D position;
+            geometry::Vector3D direction;
+            geometry::Vector3D head;
 
-        double focalDistance;
-        double cameraWidth;
-        double cameraHeight;
-
-    public:
-        Camera(const geometry::Point3D & position, const geometry::Vector3D & direction, const geometry::Vector3D & head, double focalDistance, double cameraWidth, double cameraHeight);
-        
-        geometry::Point2D doTheDance(geometry::Point3D point);
+        public:
+            Camera(const geometry::Point3D & position, const geometry::Vector3D & direction, const geometry::Vector3D & head);
+            
+            virtual geometry::Point2D doTheDance(geometry::Point3D point) =0;
     };
 }
 

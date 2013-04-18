@@ -13,12 +13,9 @@
 namespace rendering{
     using namespace geometry;
 
-    Camera::Camera(const Point3D & position, const Vector3D & direction, const Vector3D & head, double focalDistance, double cameraWidth, double cameraHeight){
+    Camera::Camera(const Point3D & position, const Vector3D & direction, const Vector3D & head){
         this->position = position;
         this->direction = direction;
-        this->focalDistance = focalDistance;
-        this->cameraWidth = cameraWidth;
-        this->cameraHeight = cameraHeight;
 
         math::Vector d = direction.asVector();
         math::Vector h = head.asVector();
