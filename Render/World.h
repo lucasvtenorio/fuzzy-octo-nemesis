@@ -22,7 +22,7 @@ namespace rendering{
         rendering::ColorVector _ambientLight;
         
     public:
-        
+        World();
     };
 }
 #endif /* defined(__Render__World__) */
