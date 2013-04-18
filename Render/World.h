@@ -10,15 +10,19 @@
 #define __Render__World__
 
 #include <vector>
+#include "Object.h"
+#include "LightSource.h"
+#include "ColorVector.h"
 
-
-//
-//namespace rendering{
-//    class World{
-//    private:
-//        std::vector<Model> modelList;
-//    public:
-//    }
-//}
-
+namespace rendering{
+    class World{
+    private:
+        std::vector<data::Object> _objects;
+        std::vector<rendering::LightSource> _lights;
+        rendering::ColorVector _ambientLight;
+        
+    public:
+        
+    };
+}
 #endif /* defined(__Render__World__) */

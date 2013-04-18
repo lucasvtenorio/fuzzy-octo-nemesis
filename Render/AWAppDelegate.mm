@@ -10,6 +10,8 @@
 #import "AWDrawerView.h"
 #include "Vector.h"
 #include "Transformation.h"
+#include "Reader.h"
+
 
 @implementation AWAppDelegate
 
@@ -17,20 +19,14 @@
 {
 //    NSImageView *view = [[NSImageView alloc] initWithFrame:CGRectMake(0.0, 0.0, 340.0, 340.0)];
 //    view.image = [NSImage imageNamed:@"teste.png"];
-    math::Matrix m = math::Matrix::createIdentity(4);
-    m(1, 1) = 2;
-    m(0, 3) = 1;
 
-    geometry::Transformation t(m);
-    geometry::Transformation t2 = t;
-    geometry::Point3D p(1, 2, 3);
-    geometry::Vector3D v(1, 2, 3);
-    t.print();
-    t2.print();
-    geometry::Point3D res = t.apply(p);
-    geometry::Vector3D resv = t.apply(v);
-    res.print();
-    resv.print();
+    io::Reader reader;
+
+    NSString *path = [[NSBundle mainBundle] pathForResource:@"camera" ofType:@"cfg"];
+    
+    rendering::PerspectiveCamera camera = reader.readCamera([path UTF8String]);
+
+    
 }
 
 @end

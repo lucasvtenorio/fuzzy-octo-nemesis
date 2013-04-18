@@ -28,6 +28,12 @@ namespace io {
         double focalDistance = x;
         double cameraWidth = y;
         double cameraHeight = z;
+
+        fclose(file);
+
+        position.print();
+        head.print();
+        direction.print();
         
         return rendering::PerspectiveCamera(position, direction, head, focalDistance, cameraWidth, cameraHeight);
     }

@@ -30,6 +30,10 @@ namespace math{
         return ret;
     }
 
+    Vector Vector::operator*(double k) const{
+        return Matrix::operator*(k);
+    }
+
     double Vector::length() const{
         return sqrt((*this)*(*this));
     }

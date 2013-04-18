@@ -16,6 +16,8 @@ namespace math{
     
     class Vector : public Matrix {
 
+    private:
+
     public:
         Vector(int n);
 
@@ -33,6 +35,7 @@ namespace math{
             return this->rowCount();
         }
 
+        Vector operator*(double k) const;
         double operator*(const Vector & v) const;
 
         double length() const;
