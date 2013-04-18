@@ -16,7 +16,7 @@
 namespace data{
     class Object{
     private:
-        Mesh _mesh;
+        Mesh * _mesh;
         rendering::ColorVector _color;
         double _ambientCoefficient;
         double _diffuseCoefficient;
@@ -24,14 +24,14 @@ namespace data{
         double _shininess;
         
     public:
-        Object(const Mesh & mesh, const rendering::ColorVector & color, double ambientCoefficient, double diffuseCoefficient, double specularCoefficient, double shininess);
+        Object(const Mesh * mesh, const rendering::ColorVector & color, double ambientCoefficient, double diffuseCoefficient, double specularCoefficient, double shininess);
         
         inline Mesh & mesh(){
-            return _mesh;
+            return (*_mesh);
         }
         
         inline const Mesh & mesh() const{
-            return _mesh;
+            return (*_mesh);
         }
         
         inline rendering::ColorVector & color(){
