@@ -11,14 +11,14 @@
 
 #include <vector>
 
-#include 
 
-namespace rendering{
-    class World{
-    private:
-        std::vector<Model> modelList;
-    public:
-    }
-}
+//
+//namespace rendering{
+//    class World{
+//    private:
+//        std::vector<Model> modelList;
+//    public:
+//    }
+//}
 
 #endif /* defined(__Render__World__) */

@@ -13,6 +13,8 @@
 		0206EE3317209C7B008F5E51 /* World.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0206EE3117209C7A008F5E51 /* World.cpp */; };
 		0206EE3B1720A72B008F5E51 /* Mesh.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0206EE391720A72B008F5E51 /* Mesh.cpp */; };
 		0206EE3E1720A75A008F5E51 /* Object.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0206EE3C1720A759008F5E51 /* Object.cpp */; };
+		0206EE401720AE72008F5E51 /* camera.cfg in Resources */ = {isa = PBXBuildFile; fileRef = 0206EE3F1720AE72008F5E51 /* camera.cfg */; };
+		0206EE491720B2D7008F5E51 /* Reader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0206EE471720B2D7008F5E51 /* Reader.cpp */; };
 		022E0EFD170E65F9002183BD /* Canvas.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 022E0EFB170E65F9002183BD /* Canvas.cpp */; };
 		02320680171DCE870014C782 /* Transformation.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0232067E171DCE870014C782 /* Transformation.cpp */; };
 		02320686171DD2DB0014C782 /* Point3D.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 02320684171DD2DB0014C782 /* Point3D.cpp */; };
@@ -49,6 +51,9 @@
 		0206EE3A1720A72B008F5E51 /* Mesh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Mesh.h; sourceTree = "<group>"; };
 		0206EE3C1720A759008F5E51 /* Object.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Object.cpp; sourceTree = "<group>"; };
 		0206EE3D1720A75A008F5E51 /* Object.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Object.h; sourceTree = "<group>"; };
+		0206EE3F1720AE72008F5E51 /* camera.cfg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = camera.cfg; sourceTree = "<group>"; };
+		0206EE471720B2D7008F5E51 /* Reader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Reader.cpp; sourceTree = "<group>"; };
+		0206EE481720B2D7008F5E51 /* Reader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reader.h; sourceTree = "<group>"; };
 		022E0EFB170E65F9002183BD /* Canvas.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Canvas.cpp; sourceTree = "<group>"; };
 		022E0EFC170E65F9002183BD /* Canvas.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Canvas.h; sourceTree = "<group>"; };
 		0232067E171DCE870014C782 /* Transformation.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Transformation.cpp; sourceTree = "<group>"; };
@@ -120,6 +125,8 @@
 		0206EE3017209BFC008F5E51 /* io */ = {
 			isa = PBXGroup;
 			children = (
+				0206EE471720B2D7008F5E51 /* Reader.cpp */,
+				0206EE481720B2D7008F5E51 /* Reader.h */,
 			);
 			name = io;
 			sourceTree = "<group>";
@@ -231,6 +238,7 @@
 		02C4C98E170DCF0C001B2FC5 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				0206EE3F1720AE72008F5E51 /* camera.cfg */,
 				02C4C98F170DCF0C001B2FC5 /* Render-Info.plist */,
 				02C4C990170DCF0C001B2FC5 /* InfoPlist.strings */,
 				02C4C993170DCF0C001B2FC5 /* main.m */,
@@ -307,6 +315,7 @@
 				02C4C998170DCF0C001B2FC5 /* Credits.rtf in Resources */,
 				02C4C99E170DCF0C001B2FC5 /* MainMenu.xib in Resources */,
 				02C4C9A5170DD094001B2FC5 /* teste.png in Resources */,
+				0206EE401720AE72008F5E51 /* camera.cfg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -335,6 +344,7 @@
 				0206EE3317209C7B008F5E51 /* World.cpp in Sources */,
 				0206EE3B1720A72B008F5E51 /* Mesh.cpp in Sources */,
 				0206EE3E1720A75A008F5E51 /* Object.cpp in Sources */,
+				0206EE491720B2D7008F5E51 /* Reader.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
