@@ -10,10 +10,14 @@
 #define __Render__Object__
 
 #include "Mesh.h"
+#include "ColorVector.cpp"
+
 
 namespace data{
     class Object{
+    private:
         Mesh mesh;
+        rendering::ColorVector color;
         
     };
 }
