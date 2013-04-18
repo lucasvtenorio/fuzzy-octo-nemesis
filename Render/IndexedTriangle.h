@@ -18,7 +18,7 @@ namespace data{
         IndexedTriangle(unsigned int aa=0, unsigned int bb=0, unsigned cc=0){
             idA = aa, idB = bb, idC = cc;
         }
-    }
+    };
 }
 
 #endif
