@@ -10,15 +10,69 @@
 #define __Render__Object__
 
 #include "Mesh.h"
-#include "ColorVector.cpp"
+#include "ColorVector.h"
 
 
 namespace data{
     class Object{
     private:
-        Mesh mesh;
-        rendering::ColorVector color;
+        Mesh _mesh;
+        rendering::ColorVector _color;
+        double _ambientCoefficient;
+        double _diffuseCoefficient;
+        double _specularCoefficient;
+        double _shininess;
         
+    public:
+        Object(const Mesh & mesh, const rendering::ColorVector & color, double ambientCoefficient, double diffuseCoefficient, double specularCoefficient, double shininess);
+        
+        inline Mesh & mesh(){
+            return _mesh;
+        }
+        
+        inline const Mesh & mesh() const{
+            return _mesh;
+        }
+        
+        inline rendering::ColorVector & color(){
+            return _color;
+        }
+        
+        inline const rendering::ColorVector & color() const{
+            return _color;
+        }
+        
+        inline double & shininess(){
+            return _shininess;
+        }
+        
+        inline const double & shininess() const{
+            return _shininess;
+        }
+        
+        inline double & ambientCoefficient(){
+            return _ambientCoefficient;
+        }
+        
+        inline const double & ambientCoefficient() const{
+            return _ambientCoefficient;
+        }
+        
+        inline double & diffuseCoefficient(){
+            return _diffuseCoefficient;
+        }
+        
+        inline const double & diffuseCoefficient() const{
+            return _diffuseCoefficient;
+        }
+        
+        inline double & specularCoefficient(){
+            return _specularCoefficient;
+        }
+        
+        inline const double & specularCoefficient() const{
+            return _specularCoefficient;
+        }
     };
 }
 

@@ -7,3 +7,9 @@
 //
 
 #include "Mesh.h"
+
+namespace data{
+    Mesh::Mesh() : pts(), idxT(){
+        
+    }
+}
