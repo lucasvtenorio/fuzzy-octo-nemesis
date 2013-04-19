@@ -23,6 +23,27 @@ namespace rendering{
         
     public:
         World();
+
+        inline std::vector<data::Object> & objects(){
+            return _objects;
+        }
+        inline const std::vector<data::Object> & objects() const{
+            return _objects;
+        }
+
+        inline std::vector<rendering::LightSource> & lights(){
+            return _lights;
+        }
+        inline const std::vector<rendering::LightSource> & lights() const{
+            return _lights;
+        }
+
+        inline rendering::ColorVector & ambientLightColor(){
+            return _ambientLight;
+        }
+        inline const rendering::ColorVector & ambientLightColor() const{
+            return _ambientLight;
+        }
     };
 }
 #endif /* defined(__Render__World__) */
