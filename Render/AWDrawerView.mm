@@ -36,8 +36,19 @@
     self.width = self.frame.size.width;
     self.height = self.frame.size.height;
     canvas = new drawing::Canvas(1440, 900);
+    [self registerForDraggedTypes:@[NSFilenamesPboardType]];
+    
 }
 
+- (NSDragOperation)draggingEntered:(id <NSDraggingInfo>)sender
+{
+
+    NSPasteboard *p = [sender draggingPasteboard];
+    NSURL *url = [NSURL URLFromPasteboard:p];
+    
+    url = nil;
+    return NSDragOperationNone;
+}
 
 
 -(void) drawRect: (NSRect) bounds
