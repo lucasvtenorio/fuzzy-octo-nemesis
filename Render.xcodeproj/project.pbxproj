@@ -33,6 +33,7 @@
 		02C4C9AA170DE7A1001B2FC5 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02C4C9A9170DE7A1001B2FC5 /* OpenGL.framework */; };
 		02F38D741714495B0016A540 /* Matrix.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 02F38D721714495B0016A540 /* Matrix.cpp */; };
 		02F38D7717145A680016A540 /* Vector.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 02F38D7517145A680016A540 /* Vector.cpp */; };
+		0F467C781721C82F00D656B0 /* Rasterizer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0F467C761721C82F00D656B0 /* Rasterizer.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -89,6 +90,8 @@
 		02F38D731714495B0016A540 /* Matrix.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Matrix.h; sourceTree = "<group>"; };
 		02F38D7517145A680016A540 /* Vector.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Vector.cpp; sourceTree = "<group>"; };
 		02F38D7617145A680016A540 /* Vector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Vector.h; sourceTree = "<group>"; };
+		0F467C761721C82F00D656B0 /* Rasterizer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Rasterizer.cpp; sourceTree = "<group>"; };
+		0F467C771721C82F00D656B0 /* Rasterizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Rasterizer.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,6 +121,8 @@
 				0206EE261720793A008F5E51 /* Color.h */,
 				022E0EFB170E65F9002183BD /* Canvas.cpp */,
 				022E0EFC170E65F9002183BD /* Canvas.h */,
+				0F467C761721C82F00D656B0 /* Rasterizer.cpp */,
+				0F467C771721C82F00D656B0 /* Rasterizer.h */,
 			);
 			name = drawing;
 			sourceTree = "<group>";
@@ -345,6 +350,7 @@
 				0206EE3B1720A72B008F5E51 /* Mesh.cpp in Sources */,
 				0206EE3E1720A75A008F5E51 /* Object.cpp in Sources */,
 				0206EE491720B2D7008F5E51 /* Reader.cpp in Sources */,
+				0F467C781721C82F00D656B0 /* Rasterizer.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

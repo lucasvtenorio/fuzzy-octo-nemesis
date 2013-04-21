@@ -45,7 +45,7 @@ namespace geometry {
             return cc;
         }
 
-        inline Vector3D getNormal() const;
+        Vector3D getNormal() const;
     };
 }
 

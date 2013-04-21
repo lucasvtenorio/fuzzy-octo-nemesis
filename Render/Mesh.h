@@ -20,15 +20,27 @@ namespace data{
     private:
         std::vector<geometry::Point3D> pts;
         std::vector<IndexedTriangle> idxT;
+        std::vector<geometry::Vector3D> _normals;
     public:
         Mesh();
 
-        std::vector<geometry::Point3D> points();
-        std::vector<IndexedTriangle> triangleIndexes;
+        inline std::vector<geometry::Point3D> & points(){
+            return pts;
+        }
+        
+        inline std::vector<IndexedTriangle> & triangleIndexes(){
+            return idxT;
+        }
 
+        inline std::vector<geometry::Vector3D> & normals(){
+            return _normals;
+        }
+        
         inline geometry::Triangle getTriangle(const IndexedTriangle & t) const{
             return geometry::Triangle(pts[t.idA], pts[t.idB], pts[t.idC]);
         }
+        
+        void computeNormals();
     };
 }
 
