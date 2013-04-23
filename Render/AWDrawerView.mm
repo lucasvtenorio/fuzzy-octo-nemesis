@@ -9,9 +9,15 @@
 #import "AWDrawerView.h"
 #include <OpenGL/gl.h>
 #include "Canvas.h"
+#include "World.h"
+#include "Camera.h"
+#include <vector>
 
 @implementation AWDrawerView {
-    drawing::Canvas *canvas;
+    drawing::Canvas * canvas;
+    rendering::World * world;
+    rendering::Camera * camera;
+    std::Vector<data::Mesh>
 }
 
 

@@ -17,7 +17,8 @@ namespace rendering{
     class ColorVector : public math::Vector{
     public:
         ColorVector(double r=255.0, double g=255.0, double b=255.0, double a=255.0);
-
+        ColorVector(const math::Matrix & v);
+        
         drawing::Color clip() const;
 
         inline double & r(){

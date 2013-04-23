@@ -20,13 +20,13 @@
 //    NSImageView *view = [[NSImageView alloc] initWithFrame:CGRectMake(0.0, 0.0, 340.0, 340.0)];
 //    view.image = [NSImage imageNamed:@"teste.png"];
 
-    io::Reader reader;
-
     NSString *path = [[NSBundle mainBundle] pathForResource:@"camera" ofType:@"cfg"];
     
-    rendering::PerspectiveCamera camera = reader.readCamera([path UTF8String]);
-
+    rendering::PerspectiveCamera * camera = io::Reader::readCamera([path UTF8String]);
     
+    path = [[NSBundle mainBundle] pathForResource:@"objeto" ofType:@"byu"];
+
+    data::Mesh * mesh =  io::Reader::readMesh([path UTF8String]);
 }
 
 @end

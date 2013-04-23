@@ -11,10 +11,14 @@
         
 #include <iostream>
 #include "PerspectiveCamera.h"
+#include "Mesh.h"
+
 namespace io {
     class Reader {
     public:
-        rendering::PerspectiveCamera readCamera(const char * filePath);
+        static rendering::PerspectiveCamera * readCamera(const char * filePath);
+        static data::Mesh * readMesh(const char * filePath);
+        static 
     };
 }
 #endif /* defined(__Render__Reader__) */

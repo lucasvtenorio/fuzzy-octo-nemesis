@@ -1,4 +1,4 @@
-//
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   //
 //  Camera.cpp
 //  Render
 //
@@ -14,7 +14,7 @@ namespace rendering{
     using namespace geometry;
 
     Camera::Camera(const Point3D & position, const Vector3D & direction, const Vector3D & head){
-        this->position = position;
+        this->_position = position;
         math::Vector d = direction.asVector().normalized();
         math::Vector h = head.asVector().normalized();
 
