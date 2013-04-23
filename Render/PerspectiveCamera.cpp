@@ -14,8 +14,8 @@ namespace rendering{
     PerspectiveCamera::PerspectiveCamera(const Point3D & position, const Vector3D & direction, const Vector3D & head, double focalDistance, double cameraWidth, double cameraHeight) : Camera(position, direction, head){
 
         this->focalDistance = focalDistance;
-        this->cameraWidth = cameraWidth/2;
-        this->cameraHeight = cameraHeight/2;
+        this->cameraWidth = cameraWidth;
+        this->cameraHeight = cameraHeight;
     }
 
     Point2D PerspectiveCamera::doTheDance(Point3D point) {

@@ -9,10 +9,10 @@
 #include "Triangle.h"
 
 namespace geometry{
-    Triangle::Triangle(Point3D a, Point3D b, Point3D c){
+    Triangle::Triangle(const Point3D & a, const Point3D & b, const Point3D & c){
         this->aa = a;
-        this->aa = b;
-        this->aa = c;
+        this->bb = b;
+        this->cc = c;
     }
 
     Vector3D Triangle::getNormal() const{

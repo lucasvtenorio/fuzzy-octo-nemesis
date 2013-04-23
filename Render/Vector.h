@@ -28,7 +28,7 @@ namespace math{
         }
 
         inline const double & operator()(int i) const{
-            return Matrix::operator()(i, 0);
+            return this->data[i];
         }
 
         inline int dimension() const{

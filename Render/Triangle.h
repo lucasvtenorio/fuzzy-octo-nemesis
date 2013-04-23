@@ -19,7 +19,7 @@ namespace geometry {
         Point3D bb;
         Point3D cc;
     public:
-        Triangle(Point3D a, Point3D b, Point3D c);
+        Triangle(const Point3D & a, const Point3D & b, const  Point3D & c);
 
         inline Point3D & a(){
             return aa;

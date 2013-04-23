@@ -19,10 +19,10 @@ namespace io {
         geometry::Point3D position(x , y, z);
 
         fscanf(file, "%lf %lf %lf", &x, &y, &z);
-        geometry::Vector3D head(x, y, z);
+        geometry::Vector3D direction(x, y, z);
 
         fscanf(file, "%lf %lf %lf", &x, &y, &z);
-        geometry::Vector3D direction(x, y, z);
+        geometry::Vector3D head(x, y, z);
 
         fscanf(file, "%lf %lf %lf", &x, &y, &z);
         double focalDistance = x;
@@ -40,7 +40,6 @@ namespace io {
     
     data::Mesh * Reader::readMesh(const char * filePath){
         FILE * file = fopen(filePath, "r");
-        printf("%s\n", filePath);
         int n, t;
         data::Mesh * mesh = new data::Mesh();
         
@@ -61,6 +60,50 @@ namespace io {
         mesh->computeNormals();
         
         return mesh;
+    }
+    
+    std::pair<rendering::World *, std::vector<data::Mesh *> > Reader::readWorld(const char * lightSourceFilepath, const char * meshFilepath) {
+
+        FILE *lightFile = fopen(lightSourceFilepath, "r");
+
+        double x, y, z;
+        double ambientCoefficient;
+        double kd;
+        double ks;
+        double n;
+
+        fscanf(lightFile, "%lf %lf %lf", &x, &y, &z);
+        geometry::Point3D lightPosition(x, y, z);
+
+        fscanf(lightFile, "%lf", &ambientCoefficient);
+        fscanf(lightFile, "%lf %lf %lf", &x, &y, &z);
+        rendering::ColorVector ia(x, y, z);
+        fscanf(lightFile, "%lf", &kd);
+
+        fscanf(lightFile, "%lf %lf %lf", &x, &y, &z);
+        rendering::ColorVector od(255*x, 255*y, 255*z);
+
+        fscanf(lightFile, "%lf", &ks);
+
+        fscanf(lightFile, "%lf %lf %lf", &x, &y, &z);
+        rendering::ColorVector lightColor(x, y, z);
+        fscanf(lightFile, "%lf", &n);
+
+        fclose(lightFile);
+
+        rendering::LightSource lightSource(lightPosition, lightColor);
+
+        std::vector<data::Mesh *> meshes;
+
+        data::Mesh * mesh = Reader::readMesh(meshFilepath);
+        meshes.push_back(mesh);
+
+        rendering::World * world = new rendering::World();
+        world->lights().push_back(lightSource);
+        world->objects().push_back(data::Object(meshes[0], od, ambientCoefficient, kd, ks, n));
+        world->ambientLightColor() = ia;
+
+        return std::pair<rendering::World *, std::vector<data::Mesh *> >(world, meshes);
     }
 }
 

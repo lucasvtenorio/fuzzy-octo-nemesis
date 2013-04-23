@@ -12,12 +12,12 @@
 #include "World.h"
 #include "Camera.h"
 #include <vector>
-
+#include "Reader.h"
+#include "Rasterizer.h"
 @implementation AWDrawerView {
     drawing::Canvas * canvas;
     rendering::World * world;
-    rendering::Camera * camera;
-    std::Vector<data::Mesh>
+    std::vector<data::Mesh> * mesh;
 }
 
 
@@ -41,22 +41,9 @@
     self.lineWidth = 1;
     self.width = self.frame.size.width;
     self.height = self.frame.size.height;
-    canvas = new drawing::Canvas(1440, 900);
-    [self registerForDraggedTypes:@[NSFilenamesPboardType]];
+    canvas = new drawing::Canvas(self.frame.size.width, self.frame.size.height);
     
 }
-
-- (NSDragOperation)draggingEntered:(id <NSDraggingInfo>)sender
-{
-
-    NSPasteboard *p = [sender draggingPasteboard];
-    NSURL *url = [NSURL URLFromPasteboard:p];
-    
-    url = nil;
-    return NSDragOperationNone;
-}
-
-
 -(void) drawRect: (NSRect) bounds
 {
     glClearColor(0, 0, 0, 0);
@@ -70,24 +57,22 @@
 
 
 - (void) mouseDown:(NSEvent *)theEvent {
-//    AWPoint origin = (AWPoint) {200,200};
-//    AWPoint end;
-//    end.x = (int)[theEvent locationInWindow].x;
-//    end.y = (int)[theEvent locationInWindow].y;
-    drawing::Color color = (drawing::Color) {255,255,255,255};
-//    NSLog(@"(%d, %d) (%d, %d)", origin.x, origin.y, end.x, end.y);
-//    [self lineWithOrigin:origin end:end andColor:color];
-    int x = (int)[theEvent locationInWindow].x;
-    int y = (int)[theEvent locationInWindow].y;
+    //Metodo GAMBI para testar o render
+    NSString * pathCamera = [[NSBundle mainBundle] pathForResource:@"camera" ofType:@"cfg"];
 
-    int radius = 300;
+    rendering::PerspectiveCamera * camera = io::Reader::readCamera([pathCamera UTF8String]);
+
+    NSString * pathMesh = [[NSBundle mainBundle] pathForResource:@"objeto" ofType:@"byu"];
+
+    NSString * pathLight = [[NSBundle mainBundle] pathForResource:@"iluminacao" ofType:@"txt"];
+
+    std::pair<rendering::World *, std::vector<data::Mesh *> > worldMeshPair = io::Reader::readWorld([pathLight UTF8String], [pathMesh UTF8String]);
+
+    printf("SIZE: %d %d\n", worldMeshPair.first->objects().size(), worldMeshPair.first->lights().size());
     
-    for ( int i = -radius; i < radius; i++) {
-        canvas->drawLine(x, y, x - radius, y + i, color);
-        canvas->drawLine(x, y, x + radius, y + i, color);
-        canvas->drawLine(x, y, x + i, y + radius, color);
-        canvas->drawLine(x, y, x + i, y - radius, color);
-    }
+    drawing::Rasterizer raster(canvas);
+
+    raster.rasterize(worldMeshPair.first, camera);
     
     [self setNeedsDisplay:YES];
 }

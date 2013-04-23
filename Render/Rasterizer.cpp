@@ -64,17 +64,15 @@ namespace drawing{
         return false;
     }
     
-    geometry::Point3D interpolate(math::Vector baricentric, const geometry::Point3D & a, const geometry::Point3D & b, const geometry::Point3D & c){
-        math::Vector v = a.asVector()*baricentric(0) + b.asVector()*baricentric(1) + c.asVector()*baricentric(2);
-        return geometry::Point3D(v(0), v(1), v(2));
+    geometry::Point3D interpolate(const math::Vector & baricentric, const geometry::Point3D & a, const geometry::Point3D & b, const geometry::Point3D & c){
+        return geometry::Point3D(baricentric(0)*a.x() + baricentric(1)*b.x() + baricentric(2)*c.x(), baricentric(0)*a.y() + baricentric(1)*b.y() + baricentric(2)*c.y(), baricentric(0)*a.z() + baricentric(2)*b.z() + baricentric(2)*c.z());
     }
     
-    geometry::Vector3D interpolate(math::Vector baricentric, const geometry::Vector3D & a, const geometry::Vector3D & b, const geometry::Vector3D & c){
-        math::Vector v = a.asVector()*baricentric(0) + b.asVector()*baricentric(1) + c.asVector()*baricentric(2);
-        return geometry::Vector3D(v(0), v(1), v(2));
+    geometry::Vector3D interpolate(const math::Vector & baricentric, const geometry::Vector3D & a, const geometry::Vector3D & b, const geometry::Vector3D & c){
+        
+        return geometry::Vector3D(baricentric(0)*a.x() + baricentric(1)*b.x() + baricentric(2)*c.x(), baricentric(0)*a.y() + baricentric(1)*b.y() + baricentric(2)*c.y(), baricentric(0)*a.z() + baricentric(2)*b.z() + baricentric(2)*c.z());
     }
     
-    //FALTA IMPLEMENTAR
     rendering::ColorVector calculateDiffuse(rendering::World * world, rendering::Camera * camera, const data::Object & object, const geometry::Point3D & position, const geometry::Vector3D normal){
         
         using namespace rendering;
@@ -84,13 +82,16 @@ namespace drawing{
         for(int light_id = 0; light_id < world->lights().size(); light_id++){
             LightSource light = world->lights()[light_id];
             math::Vector l = (light.position().asVector() - position.asVector());
-            double coef = (l.normalized()*(normal.asVector().normalized())) * object.diffuseCoefficient();
-            color = color + object.color()*coef;
+            double t = l*(normal.asVector());
+            t /= l.length() * normal.asVector().length();
+            if(t > 0){
+                double coef = t * object.diffuseCoefficient();
+                color = color + object.color()*coef;
+            }
         }
         return color;
     }
     
-    //FALTA IMPLEMENTAR
     rendering::ColorVector calculateSpecular(rendering::World * world, rendering::Camera * camera, const data::Object & object, const geometry::Point3D & position, const geometry::Vector3D normal){
         using namespace rendering;
         return ColorVector(0, 0, 0, 0);
@@ -98,16 +99,22 @@ namespace drawing{
     
 
     rendering::ColorVector calculateAmbient(rendering::World * world, const data::Object & object){
+        
         return world->ambientLightColor()*object.ambientCoefficient();
     }
 
     void Rasterizer::rasterize(rendering::World *world, rendering::Camera * camera){
         using namespace geometry;
-        
+
+        resetZBuffer();
+
         for(int object_id = 0; object_id < world->objects().size(); object_id++){
             data::Object object = world->objects()[object_id];
-            
-            for(int triangle_id = 0; triangle_id < object.mesh().triangleIndexes().size(); triangle_id++){
+            //printf("Object_id: %d/%d", object_id, world->objects().size());
+            for(int triangle_id = 0; triangle_id <
+                object.mesh().triangleIndexes().size(); triangle_id++){
+
+                if(triangle_id%1000 == 0) printf("Triangle_id: %d/%d", triangle_id, object.mesh().triangleIndexes().size());
                 data::IndexedTriangle indexedTriangle = object.mesh().triangleIndexes()[triangle_id];
                 geometry::Triangle triangle = object.mesh().getTriangle(indexedTriangle);
                 
@@ -122,9 +129,28 @@ namespace drawing{
                 Point2D pC = camera->doTheDance(triangle.c());
                 Vector3D nC = object.mesh().normals()[indexedTriangle.idC];
                 Point3D pC3 = triangle.c();
-                
+
+//                printf("----------\n");
+//
+//                printf("Camera: ");
+//                camera->print();
+//                printf("---\n");
+//
+//
+//                pA.print(), pB.print(), pC.print();
+
+                pA.x() *= canvas->getWidth();
+                pA.y() *= canvas->getHeight();
+
+                pB.x() *= canvas->getWidth();
+                pB.y() *= canvas->getHeight();
+
+                pC.x() *= canvas->getWidth();
+                pC.y() *= canvas->getHeight();
+
+
                 if(collinear(pA, pB, pC)) continue;
-                
+               // printf("Hi\n");
                 //Manual sorting == Sort dos manos
                 if(pB.y() < pA.y()){
                     std::swap(pA, pB);
@@ -144,7 +170,7 @@ namespace drawing{
                     }
                 }
                 //Fim do Manual sorting
-                
+
                 double dx1 = 0, dx2 = 0, dx3 = 0;
                 if(pB.y() - pA.y()) dx1 = (pB.x() - pA.x())/(pB.y() - pA.y());
                 if(pC.y() - pA.y()) dx2 = (pC.x() - pA.x())/(pC.y() - pA.y());
@@ -155,10 +181,12 @@ namespace drawing{
                 
                 
                 math::Matrix baric = getBaricentricTransformation(pA, pB, pC);
+
+                bool horario = (pB.x() - pA.x())*(pC.y() - pA.y()) - (pC.x() - pA.x())*(pB.y() - pA.y()) > 0;
                 
-                
-                if(dx1 > dx2){
+                if(horario){
                     for(; y <= int(pB.y()); y++){
+                        //printf("B %d - (%lf, %lf)\n", y, xBegin, xEnd);
                         for(int x = int(xBegin); x <= int(xEnd); x++){
                             math::Vector baricentric = getBaricentricCoordinates(Point2D(x, y), baric);
                             Point3D point = interpolate(baricentric, pA3, pB3, pC3);
@@ -168,14 +196,16 @@ namespace drawing{
                             color = color + calculateDiffuse(world, camera, object, point, normal);
                             color = color + calculateSpecular(world, camera, object, point, normal);
                             
-                            drawPixel(x, y, point.z(), color.clip());
+                            drawPixel(x, y, pA.depth() * baricentric(0) + pB.depth() * baricentric(1) + pC.depth() * baricentric(2), color.clip());
                         }
                         xBegin = xBegin + dx2;
                         xEnd = xEnd + dx1;
                     }
                     y = int(pB.y());
+                    xBegin = pA.x() + dx2*(pB.y() - pA.y());
                     xEnd = pB.x();
                     for(; y <= int(pC.y()); y++){
+                        //printf("C %d - (%lf, %lf)\n", y, xBegin, xEnd);
                         for(int x = int(xBegin); x <= int(xEnd); x++){
                             math::Vector baricentric = getBaricentricCoordinates(Point2D(x, y), baric);
                             Point3D point = interpolate(baricentric, pA3, pB3, pC3);
@@ -185,13 +215,15 @@ namespace drawing{
                             color = color + calculateDiffuse(world, camera, object, point, normal);
                             color = color + calculateSpecular(world, camera, object, point, normal);
                             
-                            drawPixel(x, y, point.z(), color.clip());
+                            drawPixel(x, y, pA.depth() * baricentric(0) + pB.depth() * baricentric(1) + pC.depth() * baricentric(2), color.clip());
                         }
                         xBegin = xBegin + dx2;
                         xEnd = xEnd + dx3;
                     }
                 } else{
                     for(; y <= int(pB.y()); y++){
+                        //printf("B %d - (%lf, %lf)\n", y, xBegin, xEnd);
+
                         for(int x = int(xBegin); x <= int(xEnd); x++){
                             math::Vector baricentric = getBaricentricCoordinates(Point2D(x, y), baric);
                             Point3D point = interpolate(baricentric, pA3, pB3, pC3);
@@ -201,14 +233,17 @@ namespace drawing{
                             color = color + calculateDiffuse(world, camera, object, point, normal);
                             color = color + calculateSpecular(world, camera, object, point, normal);
                             
-                            drawPixel(x, y, point.z(), color.clip());
+                            drawPixel(x, y, pA.depth() * baricentric(0) + pB.depth() * baricentric(1) + pC.depth() * baricentric(2), color.clip());
                         }
                         xBegin = xBegin + dx1;
                         xEnd = xEnd + dx2;
                     }
                     xBegin = pB.x();
+                    xEnd = pA.x() + dx2*(pB.y() - pA.y());
                     y = int(pB.y());
                     for(; y <= int(pC.y()); y++){
+                        //printf("C %d - (%lf, %lf)\n", y, xBegin, xEnd);
+
                         for(int x = int(xBegin); x <= int(xEnd); x++){
                             math::Vector baricentric = getBaricentricCoordinates(Point2D(x, y), baric);
                             Point3D point = interpolate(baricentric, pA3, pB3, pC3);
@@ -218,7 +253,7 @@ namespace drawing{
                             color = color + calculateDiffuse(world, camera, object, point, normal);
                             color = color + calculateSpecular(world, camera, object, point, normal);
                             
-                            drawPixel(x, y, point.z(), color.clip());
+                            drawPixel(x, y, pA.depth() * baricentric(0) + pB.depth() * baricentric(1) + pC.depth() * baricentric(2), color.clip());
                         }
                         xBegin = xBegin + dx3;
                         xEnd = xEnd + dx2;

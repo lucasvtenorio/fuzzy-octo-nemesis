@@ -13,6 +13,7 @@
 #include "Point2D.h"
 #include "Vector3D.h"
 
+
 namespace rendering{
     class Camera{
         protected:
@@ -32,6 +33,13 @@ namespace rendering{
             inline const geometry::Point3D & position() const{
                 return _position;
             }
+
+        void print(){
+            _position.print();
+            direction.print();
+            head.print();
+            lateral.print();
+        }
             
     };
 }

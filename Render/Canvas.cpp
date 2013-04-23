@@ -46,10 +46,11 @@ namespace drawing {
 #pragma mark -
 #pragma mark Painting
 
-    inline void Canvas::draw(int x, int y, drawing::Color color){
+     void Canvas::draw(int x, int y, drawing::Color color){
         if (x < 0 || x >= this->width || y < 0 || y >= this->height) {
             return;
         }
+        
         buffer[x * 4 + y * this->width * 4] = color.r;
         buffer[(x * 4 + y * this->width * 4)  + 1] = color.g;
         buffer[(x * 4 + y * this->width * 4)  + 2] = color.b;

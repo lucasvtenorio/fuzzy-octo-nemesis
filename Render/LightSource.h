@@ -17,11 +17,10 @@ namespace rendering{
     class LightSource{
     private:
         geometry::Point3D pos;
-        geometry::Vector3D dir;
         ColorVector col;
 
     public:
-        LightSource(geometry::Point3D position, geometry::Vector3D direction, ColorVector color);
+        LightSource(geometry::Point3D position, ColorVector color);
 
         inline geometry::Point3D & position(){
             return pos;
@@ -30,15 +29,6 @@ namespace rendering{
         inline const geometry::Point3D & position() const{
             return pos;
         }
-
-        inline geometry::Vector3D & direction(){
-            return dir;
-        }
-
-        inline const geometry::Vector3D & direction() const{
-            return dir;
-        }
-
 
         inline ColorVector & color(){
             return col;

@@ -22,7 +22,8 @@ namespace rendering{
         rendering::ColorVector _ambientLight;
         
     public:
-        World();
+        World(){
+        }
 
         inline std::vector<data::Object> & objects(){
             return _objects;

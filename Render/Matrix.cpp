@@ -31,24 +31,21 @@ Matrix Matrix::createIdentity(int n) {
 #pragma mark Constructors
 Matrix::Matrix(int row, int column) {
     if(row == 0 || column == 0){
-        this->data = nullptr;
         this->row = 0;
         this->column = 0;
     } else{
-        this->data = new double[row * column];
         this->row = row;
         this->column = column;
     }
 }
 Matrix::Matrix(const Matrix & m) {
-    
-    this->data = new double[m.rowCount() * m.columnCount()];
     this->column = m.columnCount();
     this->row = m.rowCount();
+    int pos = 0;
     for (int i = 0; i < m.rowCount(); i++) {
         for (int j = 0; j < m.columnCount(); j++) {
-            
-            (*this)(i, j) = m(i, j);
+            data[pos] = m.data[pos];
+            pos++;
         }
     }
 }
@@ -58,20 +55,21 @@ Matrix::Matrix(const Matrix & m) {
 
 Matrix& Matrix::operator=(const Matrix & m) {
     if(this != &m){
+        int pos = 0;
         if(this->rowCount() != m.rowCount() || this->columnCount() != m.columnCount()){
-            this->clear();
             this->column = m.columnCount();
             this->row = m.rowCount();
-            this->data = new double[this->rowCount() * this->columnCount()];
             for (int i = 0; i < m.rowCount(); i++) {
                 for (int j = 0; j < m.columnCount(); j++) {
-                    (*this)(i, j) = m(i, j);
+                    this->data[pos] = m.data[pos];
+                    pos++;
                 }
             }
         } else{
             for (int i = 0; i < m.rowCount(); i++) {
                 for (int j = 0; j < m.columnCount(); j++) {
-                    (*this)(i,j) = m(i,j);
+                    this->data[pos] = m.data[pos];
+                    pos++;
                 }
             }
         }
@@ -80,9 +78,6 @@ Matrix& Matrix::operator=(const Matrix & m) {
 }
 
 Matrix Matrix::operator+(const Matrix & m) const{
-    assert(this->rowCount() == m.rowCount());
-    assert(this->columnCount() == m.columnCount());
-
     Matrix ret(this->rowCount(), this->columnCount());
     for(int i = 0; i < ret.rowCount(); i++){
         for(int j = 0; j < ret.columnCount(); j++){
@@ -94,9 +89,6 @@ Matrix Matrix::operator+(const Matrix & m) const{
 }
 
 Matrix Matrix::operator-(const Matrix & m) const{
-    assert(this->rowCount() == m.rowCount());
-    assert(this->columnCount() == m.columnCount());
-
     Matrix ret(this->rowCount(), this->columnCount());
     for(int i = 0; i < ret.rowCount(); i++){
         for(int j = 0; j < ret.columnCount(); j++){
@@ -109,8 +101,6 @@ Matrix Matrix::operator-(const Matrix & m) const{
 
 
 Matrix Matrix::operator*(const Matrix & m) const{
-    assert(this->columnCount() == m.rowCount());
-
     Matrix ret(this->rowCount(), this->columnCount());
     for(int i = 0; i < ret.rowCount(); i++){
         for(int j = 0; j < ret.columnCount(); j++){
@@ -160,12 +150,6 @@ void Matrix::print() const{
 }
 
 void Matrix::clear() {
-    if(this->data != nullptr){
-        delete[] this->data;
-        this->data = nullptr;
-    }
-    this->row = 0;
-    this->column = 0;
 }
 
 

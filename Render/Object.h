@@ -24,7 +24,7 @@ namespace data{
         double _shininess;
         
     public:
-        Object(const Mesh * mesh, const rendering::ColorVector & color, double ambientCoefficient, double diffuseCoefficient, double specularCoefficient, double shininess);
+        Object(Mesh * mesh, const rendering::ColorVector & color, double ambientCoefficient, double diffuseCoefficient, double specularCoefficient, double shininess);
         
         inline Mesh & mesh(){
             return (*_mesh);

@@ -12,13 +12,17 @@
 #include <iostream>
 #include "PerspectiveCamera.h"
 #include "Mesh.h"
+#include "LightSource.h"
+#include "World.h"
+#include <vector>
+
 
 namespace io {
     class Reader {
     public:
         static rendering::PerspectiveCamera * readCamera(const char * filePath);
         static data::Mesh * readMesh(const char * filePath);
-        static 
+        static std::pair<rendering::World *, std::vector<data::Mesh *> > readWorld(const char * lightSourceFilepath, const char * meshFilepath);
     };
 }
 #endif /* defined(__Render__Reader__) */

@@ -14,8 +14,10 @@ namespace math{
     private:
 
         int row, column;
-        double * data;
         void clear();
+
+    protected:
+        double data[16];
 
     public:
 
@@ -26,7 +28,6 @@ namespace math{
         Matrix(const Matrix & m);
         
         virtual ~Matrix(){
-            this->clear();
         }
 
         inline int rowCount() const{

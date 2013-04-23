@@ -9,9 +9,8 @@
 #include "LightSource.h"
 
 namespace rendering{
-    LightSource::LightSource(geometry::Point3D position, geometry::Vector3D direction, ColorVector color){
+    LightSource::LightSource(geometry::Point3D position, ColorVector color){
         this->pos = position;
-        this->dir = direction;
         this->col = color;
     }
 }

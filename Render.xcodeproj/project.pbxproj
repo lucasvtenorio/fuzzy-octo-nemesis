@@ -33,6 +33,9 @@
 		02C4C9AA170DE7A1001B2FC5 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02C4C9A9170DE7A1001B2FC5 /* OpenGL.framework */; };
 		02F38D741714495B0016A540 /* Matrix.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 02F38D721714495B0016A540 /* Matrix.cpp */; };
 		02F38D7717145A680016A540 /* Vector.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 02F38D7517145A680016A540 /* Vector.cpp */; };
+		02F3E4961726FC8700683A10 /* camera2.cfg in Resources */ = {isa = PBXBuildFile; fileRef = 02F3E4931726FC8600683A10 /* camera2.cfg */; };
+		02F3E4971726FC8700683A10 /* iluminacao2.txt in Resources */ = {isa = PBXBuildFile; fileRef = 02F3E4941726FC8700683A10 /* iluminacao2.txt */; };
+		02F3E4981726FC8700683A10 /* objeto2.byu in Resources */ = {isa = PBXBuildFile; fileRef = 02F3E4951726FC8700683A10 /* objeto2.byu */; };
 		0F467C781721C82F00D656B0 /* Rasterizer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0F467C761721C82F00D656B0 /* Rasterizer.cpp */; };
 		0FCD126A1725ECCD00CECBAA /* objeto.byu in Resources */ = {isa = PBXBuildFile; fileRef = 0FCD12691725ECCD00CECBAA /* objeto.byu */; };
 		0FCD126C1725ED0500CECBAA /* iluminacao.txt in Resources */ = {isa = PBXBuildFile; fileRef = 0FCD126B1725ED0500CECBAA /* iluminacao.txt */; };
@@ -137,6 +140,9 @@
 		02F38D731714495B0016A540 /* Matrix.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Matrix.h; sourceTree = "<group>"; };
 		02F38D7517145A680016A540 /* Vector.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Vector.cpp; sourceTree = "<group>"; };
 		02F38D7617145A680016A540 /* Vector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Vector.h; sourceTree = "<group>"; };
+		02F3E4931726FC8600683A10 /* camera2.cfg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = camera2.cfg; sourceTree = "<group>"; };
+		02F3E4941726FC8700683A10 /* iluminacao2.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = iluminacao2.txt; sourceTree = "<group>"; };
+		02F3E4951726FC8700683A10 /* objeto2.byu */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = objeto2.byu; sourceTree = "<group>"; };
 		0F467C761721C82F00D656B0 /* Rasterizer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Rasterizer.cpp; sourceTree = "<group>"; };
 		0F467C771721C82F00D656B0 /* Rasterizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Rasterizer.h; sourceTree = "<group>"; };
 		0FCD12691725ECCD00CECBAA /* objeto.byu */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = objeto.byu; sourceTree = "<group>"; };
@@ -337,6 +343,9 @@
 		02C4C98E170DCF0C001B2FC5 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				02F3E4931726FC8600683A10 /* camera2.cfg */,
+				02F3E4941726FC8700683A10 /* iluminacao2.txt */,
+				02F3E4951726FC8700683A10 /* objeto2.byu */,
 				0FCD126D1725ED1B00CECBAA /* Cameras */,
 				0FCD12851725ED1B00CECBAA /* Objetos */,
 				0FCD126B1725ED0500CECBAA /* iluminacao.txt */,
@@ -525,6 +534,9 @@
 				0FCD12C61725ED1B00CECBAA /* vader.byu in Resources */,
 				0FCD12C71725ED1B00CECBAA /* vaso.byu in Resources */,
 				0FCD12C81725ED1B00CECBAA /* yoda.byu in Resources */,
+				02F3E4961726FC8700683A10 /* camera2.cfg in Resources */,
+				02F3E4971726FC8700683A10 /* iluminacao2.txt in Resources */,
+				02F3E4981726FC8700683A10 /* objeto2.byu in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
