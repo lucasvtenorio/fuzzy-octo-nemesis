@@ -34,6 +34,53 @@
 		02F38D741714495B0016A540 /* Matrix.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 02F38D721714495B0016A540 /* Matrix.cpp */; };
 		02F38D7717145A680016A540 /* Vector.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 02F38D7517145A680016A540 /* Vector.cpp */; };
 		0F467C781721C82F00D656B0 /* Rasterizer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0F467C761721C82F00D656B0 /* Rasterizer.cpp */; };
+		0FCD126A1725ECCD00CECBAA /* objeto.byu in Resources */ = {isa = PBXBuildFile; fileRef = 0FCD12691725ECCD00CECBAA /* objeto.byu */; };
+		0FCD126C1725ED0500CECBAA /* iluminacao.txt in Resources */ = {isa = PBXBuildFile; fileRef = 0FCD126B1725ED0500CECBAA /* iluminacao.txt */; };
+		0FCD129C1725ED1B00CECBAA /* 01_Camera.cfg in Resources */ = {isa = PBXBuildFile; fileRef = 0FCD126E1725ED1B00CECBAA /* 01_Camera.cfg */; };
+		0FCD129D1725ED1B00CECBAA /* animais.cfg in Resources */ = {isa = PBXBuildFile; fileRef = 0FCD126F1725ED1B00CECBAA /* animais.cfg */; };
+		0FCD129E1725ED1B00CECBAA /* calice2.cfg in Resources */ = {isa = PBXBuildFile; fileRef = 0FCD12701725ED1B00CECBAA /* calice2.cfg */; };
+		0FCD129F1725ED1B00CECBAA /* camaro.cfg in Resources */ = {isa = PBXBuildFile; fileRef = 0FCD12711725ED1B00CECBAA /* camaro.cfg */; };
+		0FCD12A01725ED1B00CECBAA /* casa.cfg in Resources */ = {isa = PBXBuildFile; fileRef = 0FCD12721725ED1B00CECBAA /* casa.cfg */; };
+		0FCD12A11725ED1B00CECBAA /* CAT.cfg in Resources */ = {isa = PBXBuildFile; fileRef = 0FCD12731725ED1B00CECBAA /* CAT.cfg */; };
+		0FCD12A21725ED1B00CECBAA /* COW.cfg in Resources */ = {isa = PBXBuildFile; fileRef = 0FCD12741725ED1B00CECBAA /* COW.cfg */; };
+		0FCD12A31725ED1B00CECBAA /* crusader.cfg in Resources */ = {isa = PBXBuildFile; fileRef = 0FCD12751725ED1B00CECBAA /* crusader.cfg */; };
+		0FCD12A41725ED1B00CECBAA /* crusader2.cfg in Resources */ = {isa = PBXBuildFile; fileRef = 0FCD12761725ED1B00CECBAA /* crusader2.cfg */; };
+		0FCD12A51725ED1B00CECBAA /* maca.cfg in Resources */ = {isa = PBXBuildFile; fileRef = 0FCD12771725ED1B00CECBAA /* maca.cfg */; };
+		0FCD12A61725ED1B00CECBAA /* maca2.cfg in Resources */ = {isa = PBXBuildFile; fileRef = 0FCD12781725ED1B00CECBAA /* maca2.cfg */; };
+		0FCD12A71725ED1B00CECBAA /* moto.cfg in Resources */ = {isa = PBXBuildFile; fileRef = 0FCD12791725ED1B00CECBAA /* moto.cfg */; };
+		0FCD12A81725ED1B00CECBAA /* piramide.cfg in Resources */ = {isa = PBXBuildFile; fileRef = 0FCD127A1725ED1B00CECBAA /* piramide.cfg */; };
+		0FCD12A91725ED1B00CECBAA /* spaceship.cfg in Resources */ = {isa = PBXBuildFile; fileRef = 0FCD127B1725ED1B00CECBAA /* spaceship.cfg */; };
+		0FCD12AA1725ED1B00CECBAA /* superficie.cfg in Resources */ = {isa = PBXBuildFile; fileRef = 0FCD127C1725ED1B00CECBAA /* superficie.cfg */; };
+		0FCD12AB1725ED1B00CECBAA /* triangulo.cfg in Resources */ = {isa = PBXBuildFile; fileRef = 0FCD127D1725ED1B00CECBAA /* triangulo.cfg */; };
+		0FCD12AC1725ED1B00CECBAA /* trooper.cfg in Resources */ = {isa = PBXBuildFile; fileRef = 0FCD127E1725ED1B00CECBAA /* trooper.cfg */; };
+		0FCD12AD1725ED1B00CECBAA /* trooper2.cfg in Resources */ = {isa = PBXBuildFile; fileRef = 0FCD127F1725ED1B00CECBAA /* trooper2.cfg */; };
+		0FCD12AE1725ED1B00CECBAA /* vader.cfg in Resources */ = {isa = PBXBuildFile; fileRef = 0FCD12801725ED1B00CECBAA /* vader.cfg */; };
+		0FCD12AF1725ED1B00CECBAA /* vaso.cfg in Resources */ = {isa = PBXBuildFile; fileRef = 0FCD12811725ED1B00CECBAA /* vaso.cfg */; };
+		0FCD12B01725ED1B00CECBAA /* vaso2.cfg in Resources */ = {isa = PBXBuildFile; fileRef = 0FCD12821725ED1B00CECBAA /* vaso2.cfg */; };
+		0FCD12B11725ED1B00CECBAA /* vaso3.cfg in Resources */ = {isa = PBXBuildFile; fileRef = 0FCD12831725ED1B00CECBAA /* vaso3.cfg */; };
+		0FCD12B21725ED1B00CECBAA /* yoda.cfg in Resources */ = {isa = PBXBuildFile; fileRef = 0FCD12841725ED1B00CECBAA /* yoda.cfg */; };
+		0FCD12B31725ED1B00CECBAA /* 01_Objeto.byu in Resources */ = {isa = PBXBuildFile; fileRef = 0FCD12861725ED1B00CECBAA /* 01_Objeto.byu */; };
+		0FCD12B41725ED1B00CECBAA /* calice.byu in Resources */ = {isa = PBXBuildFile; fileRef = 0FCD12871725ED1B00CECBAA /* calice.byu */; };
+		0FCD12B51725ED1B00CECBAA /* calice2.byu in Resources */ = {isa = PBXBuildFile; fileRef = 0FCD12881725ED1B00CECBAA /* calice2.byu */; };
+		0FCD12B61725ED1B00CECBAA /* camaro.byu in Resources */ = {isa = PBXBuildFile; fileRef = 0FCD12891725ED1B00CECBAA /* camaro.byu */; };
+		0FCD12B71725ED1B00CECBAA /* casa.byu in Resources */ = {isa = PBXBuildFile; fileRef = 0FCD128A1725ED1B00CECBAA /* casa.byu */; };
+		0FCD12B81725ED1B00CECBAA /* CAT.byu in Resources */ = {isa = PBXBuildFile; fileRef = 0FCD128B1725ED1B00CECBAA /* CAT.byu */; };
+		0FCD12B91725ED1B00CECBAA /* COW.byu in Resources */ = {isa = PBXBuildFile; fileRef = 0FCD128C1725ED1B00CECBAA /* COW.byu */; };
+		0FCD12BA1725ED1B00CECBAA /* crusader.byu in Resources */ = {isa = PBXBuildFile; fileRef = 0FCD128D1725ED1B00CECBAA /* crusader.byu */; };
+		0FCD12BB1725ED1B00CECBAA /* dalton.byu in Resources */ = {isa = PBXBuildFile; fileRef = 0FCD128E1725ED1B00CECBAA /* dalton.byu */; };
+		0FCD12BC1725ED1B00CECBAA /* DOG.byu in Resources */ = {isa = PBXBuildFile; fileRef = 0FCD128F1725ED1B00CECBAA /* DOG.byu */; };
+		0FCD12BD1725ED1B00CECBAA /* maca.byu in Resources */ = {isa = PBXBuildFile; fileRef = 0FCD12901725ED1B00CECBAA /* maca.byu */; };
+		0FCD12BE1725ED1B00CECBAA /* maca2.byu in Resources */ = {isa = PBXBuildFile; fileRef = 0FCD12911725ED1B00CECBAA /* maca2.byu */; };
+		0FCD12BF1725ED1B00CECBAA /* moto.byu in Resources */ = {isa = PBXBuildFile; fileRef = 0FCD12921725ED1B00CECBAA /* moto.byu */; };
+		0FCD12C01725ED1B00CECBAA /* piramide.byu in Resources */ = {isa = PBXBuildFile; fileRef = 0FCD12931725ED1B00CECBAA /* piramide.byu */; };
+		0FCD12C11725ED1B00CECBAA /* spaceship.byu in Resources */ = {isa = PBXBuildFile; fileRef = 0FCD12941725ED1B00CECBAA /* spaceship.byu */; };
+		0FCD12C21725ED1B00CECBAA /* superficie.byu in Resources */ = {isa = PBXBuildFile; fileRef = 0FCD12951725ED1B00CECBAA /* superficie.byu */; };
+		0FCD12C31725ED1B00CECBAA /* triangulo.byu in Resources */ = {isa = PBXBuildFile; fileRef = 0FCD12961725ED1B00CECBAA /* triangulo.byu */; };
+		0FCD12C41725ED1B00CECBAA /* trooper.byu in Resources */ = {isa = PBXBuildFile; fileRef = 0FCD12971725ED1B00CECBAA /* trooper.byu */; };
+		0FCD12C51725ED1B00CECBAA /* tui.byu in Resources */ = {isa = PBXBuildFile; fileRef = 0FCD12981725ED1B00CECBAA /* tui.byu */; };
+		0FCD12C61725ED1B00CECBAA /* vader.byu in Resources */ = {isa = PBXBuildFile; fileRef = 0FCD12991725ED1B00CECBAA /* vader.byu */; };
+		0FCD12C71725ED1B00CECBAA /* vaso.byu in Resources */ = {isa = PBXBuildFile; fileRef = 0FCD129A1725ED1B00CECBAA /* vaso.byu */; };
+		0FCD12C81725ED1B00CECBAA /* yoda.byu in Resources */ = {isa = PBXBuildFile; fileRef = 0FCD129B1725ED1B00CECBAA /* yoda.byu */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -92,6 +139,53 @@
 		02F38D7617145A680016A540 /* Vector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Vector.h; sourceTree = "<group>"; };
 		0F467C761721C82F00D656B0 /* Rasterizer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Rasterizer.cpp; sourceTree = "<group>"; };
 		0F467C771721C82F00D656B0 /* Rasterizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Rasterizer.h; sourceTree = "<group>"; };
+		0FCD12691725ECCD00CECBAA /* objeto.byu */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = objeto.byu; sourceTree = "<group>"; };
+		0FCD126B1725ED0500CECBAA /* iluminacao.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = iluminacao.txt; sourceTree = "<group>"; };
+		0FCD126E1725ED1B00CECBAA /* 01_Camera.cfg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = 01_Camera.cfg; sourceTree = "<group>"; };
+		0FCD126F1725ED1B00CECBAA /* animais.cfg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = animais.cfg; sourceTree = "<group>"; };
+		0FCD12701725ED1B00CECBAA /* calice2.cfg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = calice2.cfg; sourceTree = "<group>"; };
+		0FCD12711725ED1B00CECBAA /* camaro.cfg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = camaro.cfg; sourceTree = "<group>"; };
+		0FCD12721725ED1B00CECBAA /* casa.cfg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = casa.cfg; sourceTree = "<group>"; };
+		0FCD12731725ED1B00CECBAA /* CAT.cfg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = CAT.cfg; sourceTree = "<group>"; };
+		0FCD12741725ED1B00CECBAA /* COW.cfg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = COW.cfg; sourceTree = "<group>"; };
+		0FCD12751725ED1B00CECBAA /* crusader.cfg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = crusader.cfg; sourceTree = "<group>"; };
+		0FCD12761725ED1B00CECBAA /* crusader2.cfg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = crusader2.cfg; sourceTree = "<group>"; };
+		0FCD12771725ED1B00CECBAA /* maca.cfg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = maca.cfg; sourceTree = "<group>"; };
+		0FCD12781725ED1B00CECBAA /* maca2.cfg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = maca2.cfg; sourceTree = "<group>"; };
+		0FCD12791725ED1B00CECBAA /* moto.cfg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = moto.cfg; sourceTree = "<group>"; };
+		0FCD127A1725ED1B00CECBAA /* piramide.cfg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = piramide.cfg; sourceTree = "<group>"; };
+		0FCD127B1725ED1B00CECBAA /* spaceship.cfg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = spaceship.cfg; sourceTree = "<group>"; };
+		0FCD127C1725ED1B00CECBAA /* superficie.cfg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = superficie.cfg; sourceTree = "<group>"; };
+		0FCD127D1725ED1B00CECBAA /* triangulo.cfg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = triangulo.cfg; sourceTree = "<group>"; };
+		0FCD127E1725ED1B00CECBAA /* trooper.cfg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = trooper.cfg; sourceTree = "<group>"; };
+		0FCD127F1725ED1B00CECBAA /* trooper2.cfg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = trooper2.cfg; sourceTree = "<group>"; };
+		0FCD12801725ED1B00CECBAA /* vader.cfg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = vader.cfg; sourceTree = "<group>"; };
+		0FCD12811725ED1B00CECBAA /* vaso.cfg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = vaso.cfg; sourceTree = "<group>"; };
+		0FCD12821725ED1B00CECBAA /* vaso2.cfg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = vaso2.cfg; sourceTree = "<group>"; };
+		0FCD12831725ED1B00CECBAA /* vaso3.cfg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = vaso3.cfg; sourceTree = "<group>"; };
+		0FCD12841725ED1B00CECBAA /* yoda.cfg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = yoda.cfg; sourceTree = "<group>"; };
+		0FCD12861725ED1B00CECBAA /* 01_Objeto.byu */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = 01_Objeto.byu; sourceTree = "<group>"; };
+		0FCD12871725ED1B00CECBAA /* calice.byu */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = calice.byu; sourceTree = "<group>"; };
+		0FCD12881725ED1B00CECBAA /* calice2.byu */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = calice2.byu; sourceTree = "<group>"; };
+		0FCD12891725ED1B00CECBAA /* camaro.byu */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = camaro.byu; sourceTree = "<group>"; };
+		0FCD128A1725ED1B00CECBAA /* casa.byu */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = casa.byu; sourceTree = "<group>"; };
+		0FCD128B1725ED1B00CECBAA /* CAT.byu */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = CAT.byu; sourceTree = "<group>"; };
+		0FCD128C1725ED1B00CECBAA /* COW.byu */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = COW.byu; sourceTree = "<group>"; };
+		0FCD128D1725ED1B00CECBAA /* crusader.byu */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = crusader.byu; sourceTree = "<group>"; };
+		0FCD128E1725ED1B00CECBAA /* dalton.byu */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = dalton.byu; sourceTree = "<group>"; };
+		0FCD128F1725ED1B00CECBAA /* DOG.byu */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = DOG.byu; sourceTree = "<group>"; };
+		0FCD12901725ED1B00CECBAA /* maca.byu */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = maca.byu; sourceTree = "<group>"; };
+		0FCD12911725ED1B00CECBAA /* maca2.byu */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = maca2.byu; sourceTree = "<group>"; };
+		0FCD12921725ED1B00CECBAA /* moto.byu */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = moto.byu; sourceTree = "<group>"; };
+		0FCD12931725ED1B00CECBAA /* piramide.byu */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = piramide.byu; sourceTree = "<group>"; };
+		0FCD12941725ED1B00CECBAA /* spaceship.byu */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = spaceship.byu; sourceTree = "<group>"; };
+		0FCD12951725ED1B00CECBAA /* superficie.byu */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = superficie.byu; sourceTree = "<group>"; };
+		0FCD12961725ED1B00CECBAA /* triangulo.byu */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = triangulo.byu; sourceTree = "<group>"; };
+		0FCD12971725ED1B00CECBAA /* trooper.byu */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = trooper.byu; sourceTree = "<group>"; };
+		0FCD12981725ED1B00CECBAA /* tui.byu */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = tui.byu; sourceTree = "<group>"; };
+		0FCD12991725ED1B00CECBAA /* vader.byu */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = vader.byu; sourceTree = "<group>"; };
+		0FCD129A1725ED1B00CECBAA /* vaso.byu */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = vaso.byu; sourceTree = "<group>"; };
+		0FCD129B1725ED1B00CECBAA /* yoda.byu */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = yoda.byu; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -243,6 +337,10 @@
 		02C4C98E170DCF0C001B2FC5 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				0FCD126D1725ED1B00CECBAA /* Cameras */,
+				0FCD12851725ED1B00CECBAA /* Objetos */,
+				0FCD126B1725ED0500CECBAA /* iluminacao.txt */,
+				0FCD12691725ECCD00CECBAA /* objeto.byu */,
 				0206EE3F1720AE72008F5E51 /* camera.cfg */,
 				02C4C98F170DCF0C001B2FC5 /* Render-Info.plist */,
 				02C4C990170DCF0C001B2FC5 /* InfoPlist.strings */,
@@ -262,6 +360,65 @@
 				02F38D7617145A680016A540 /* Vector.h */,
 			);
 			name = math;
+			sourceTree = "<group>";
+		};
+		0FCD126D1725ED1B00CECBAA /* Cameras */ = {
+			isa = PBXGroup;
+			children = (
+				0FCD126E1725ED1B00CECBAA /* 01_Camera.cfg */,
+				0FCD126F1725ED1B00CECBAA /* animais.cfg */,
+				0FCD12701725ED1B00CECBAA /* calice2.cfg */,
+				0FCD12711725ED1B00CECBAA /* camaro.cfg */,
+				0FCD12721725ED1B00CECBAA /* casa.cfg */,
+				0FCD12731725ED1B00CECBAA /* CAT.cfg */,
+				0FCD12741725ED1B00CECBAA /* COW.cfg */,
+				0FCD12751725ED1B00CECBAA /* crusader.cfg */,
+				0FCD12761725ED1B00CECBAA /* crusader2.cfg */,
+				0FCD12771725ED1B00CECBAA /* maca.cfg */,
+				0FCD12781725ED1B00CECBAA /* maca2.cfg */,
+				0FCD12791725ED1B00CECBAA /* moto.cfg */,
+				0FCD127A1725ED1B00CECBAA /* piramide.cfg */,
+				0FCD127B1725ED1B00CECBAA /* spaceship.cfg */,
+				0FCD127C1725ED1B00CECBAA /* superficie.cfg */,
+				0FCD127D1725ED1B00CECBAA /* triangulo.cfg */,
+				0FCD127E1725ED1B00CECBAA /* trooper.cfg */,
+				0FCD127F1725ED1B00CECBAA /* trooper2.cfg */,
+				0FCD12801725ED1B00CECBAA /* vader.cfg */,
+				0FCD12811725ED1B00CECBAA /* vaso.cfg */,
+				0FCD12821725ED1B00CECBAA /* vaso2.cfg */,
+				0FCD12831725ED1B00CECBAA /* vaso3.cfg */,
+				0FCD12841725ED1B00CECBAA /* yoda.cfg */,
+			);
+			path = Cameras;
+			sourceTree = "<group>";
+		};
+		0FCD12851725ED1B00CECBAA /* Objetos */ = {
+			isa = PBXGroup;
+			children = (
+				0FCD12861725ED1B00CECBAA /* 01_Objeto.byu */,
+				0FCD12871725ED1B00CECBAA /* calice.byu */,
+				0FCD12881725ED1B00CECBAA /* calice2.byu */,
+				0FCD12891725ED1B00CECBAA /* camaro.byu */,
+				0FCD128A1725ED1B00CECBAA /* casa.byu */,
+				0FCD128B1725ED1B00CECBAA /* CAT.byu */,
+				0FCD128C1725ED1B00CECBAA /* COW.byu */,
+				0FCD128D1725ED1B00CECBAA /* crusader.byu */,
+				0FCD128E1725ED1B00CECBAA /* dalton.byu */,
+				0FCD128F1725ED1B00CECBAA /* DOG.byu */,
+				0FCD12901725ED1B00CECBAA /* maca.byu */,
+				0FCD12911725ED1B00CECBAA /* maca2.byu */,
+				0FCD12921725ED1B00CECBAA /* moto.byu */,
+				0FCD12931725ED1B00CECBAA /* piramide.byu */,
+				0FCD12941725ED1B00CECBAA /* spaceship.byu */,
+				0FCD12951725ED1B00CECBAA /* superficie.byu */,
+				0FCD12961725ED1B00CECBAA /* triangulo.byu */,
+				0FCD12971725ED1B00CECBAA /* trooper.byu */,
+				0FCD12981725ED1B00CECBAA /* tui.byu */,
+				0FCD12991725ED1B00CECBAA /* vader.byu */,
+				0FCD129A1725ED1B00CECBAA /* vaso.byu */,
+				0FCD129B1725ED1B00CECBAA /* yoda.byu */,
+			);
+			path = Objetos;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -321,6 +478,53 @@
 				02C4C99E170DCF0C001B2FC5 /* MainMenu.xib in Resources */,
 				02C4C9A5170DD094001B2FC5 /* teste.png in Resources */,
 				0206EE401720AE72008F5E51 /* camera.cfg in Resources */,
+				0FCD126A1725ECCD00CECBAA /* objeto.byu in Resources */,
+				0FCD126C1725ED0500CECBAA /* iluminacao.txt in Resources */,
+				0FCD129C1725ED1B00CECBAA /* 01_Camera.cfg in Resources */,
+				0FCD129D1725ED1B00CECBAA /* animais.cfg in Resources */,
+				0FCD129E1725ED1B00CECBAA /* calice2.cfg in Resources */,
+				0FCD129F1725ED1B00CECBAA /* camaro.cfg in Resources */,
+				0FCD12A01725ED1B00CECBAA /* casa.cfg in Resources */,
+				0FCD12A11725ED1B00CECBAA /* CAT.cfg in Resources */,
+				0FCD12A21725ED1B00CECBAA /* COW.cfg in Resources */,
+				0FCD12A31725ED1B00CECBAA /* crusader.cfg in Resources */,
+				0FCD12A41725ED1B00CECBAA /* crusader2.cfg in Resources */,
+				0FCD12A51725ED1B00CECBAA /* maca.cfg in Resources */,
+				0FCD12A61725ED1B00CECBAA /* maca2.cfg in Resources */,
+				0FCD12A71725ED1B00CECBAA /* moto.cfg in Resources */,
+				0FCD12A81725ED1B00CECBAA /* piramide.cfg in Resources */,
+				0FCD12A91725ED1B00CECBAA /* spaceship.cfg in Resources */,
+				0FCD12AA1725ED1B00CECBAA /* superficie.cfg in Resources */,
+				0FCD12AB1725ED1B00CECBAA /* triangulo.cfg in Resources */,
+				0FCD12AC1725ED1B00CECBAA /* trooper.cfg in Resources */,
+				0FCD12AD1725ED1B00CECBAA /* trooper2.cfg in Resources */,
+				0FCD12AE1725ED1B00CECBAA /* vader.cfg in Resources */,
+				0FCD12AF1725ED1B00CECBAA /* vaso.cfg in Resources */,
+				0FCD12B01725ED1B00CECBAA /* vaso2.cfg in Resources */,
+				0FCD12B11725ED1B00CECBAA /* vaso3.cfg in Resources */,
+				0FCD12B21725ED1B00CECBAA /* yoda.cfg in Resources */,
+				0FCD12B31725ED1B00CECBAA /* 01_Objeto.byu in Resources */,
+				0FCD12B41725ED1B00CECBAA /* calice.byu in Resources */,
+				0FCD12B51725ED1B00CECBAA /* calice2.byu in Resources */,
+				0FCD12B61725ED1B00CECBAA /* camaro.byu in Resources */,
+				0FCD12B71725ED1B00CECBAA /* casa.byu in Resources */,
+				0FCD12B81725ED1B00CECBAA /* CAT.byu in Resources */,
+				0FCD12B91725ED1B00CECBAA /* COW.byu in Resources */,
+				0FCD12BA1725ED1B00CECBAA /* crusader.byu in Resources */,
+				0FCD12BB1725ED1B00CECBAA /* dalton.byu in Resources */,
+				0FCD12BC1725ED1B00CECBAA /* DOG.byu in Resources */,
+				0FCD12BD1725ED1B00CECBAA /* maca.byu in Resources */,
+				0FCD12BE1725ED1B00CECBAA /* maca2.byu in Resources */,
+				0FCD12BF1725ED1B00CECBAA /* moto.byu in Resources */,
+				0FCD12C01725ED1B00CECBAA /* piramide.byu in Resources */,
+				0FCD12C11725ED1B00CECBAA /* spaceship.byu in Resources */,
+				0FCD12C21725ED1B00CECBAA /* superficie.byu in Resources */,
+				0FCD12C31725ED1B00CECBAA /* triangulo.byu in Resources */,
+				0FCD12C41725ED1B00CECBAA /* trooper.byu in Resources */,
+				0FCD12C51725ED1B00CECBAA /* tui.byu in Resources */,
+				0FCD12C61725ED1B00CECBAA /* vader.byu in Resources */,
+				0FCD12C71725ED1B00CECBAA /* vaso.byu in Resources */,
+				0FCD12C81725ED1B00CECBAA /* yoda.byu in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -19,7 +19,7 @@ namespace rendering{
     }
 
     Point2D PerspectiveCamera::doTheDance(Point3D point) {
-        math::Vector p = point.asVector() - position.asVector();
+        math::Vector p = point.asVector() - position().asVector();
         double x = p*lateral.asVector();
         double y = p*head.asVector();
         double z = p*direction.asVector();

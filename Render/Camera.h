@@ -16,7 +16,7 @@
 namespace rendering{
     class Camera{
         protected:
-            geometry::Point3D position;
+            geometry::Point3D _position;
             geometry::Vector3D direction;
             geometry::Vector3D head;
             geometry::Vector3D lateral;
@@ -24,6 +24,15 @@ namespace rendering{
             Camera(const geometry::Point3D & position, const geometry::Vector3D & direction, const geometry::Vector3D & head);
             
             virtual geometry::Point2D doTheDance(geometry::Point3D point) =0;
+        
+            inline geometry::Point3D & position(){
+                return _position;
+            }
+            
+            inline const geometry::Point3D & position() const{
+                return _position;
+            }
+            
     };
 }
 

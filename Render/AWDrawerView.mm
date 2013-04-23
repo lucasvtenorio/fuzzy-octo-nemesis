@@ -9,9 +9,15 @@
 #import "AWDrawerView.h"
 #include <OpenGL/gl.h>
 #include "Canvas.h"
+#include "World.h"
+#include "Camera.h"
+#include <vector>
 
 @implementation AWDrawerView {
-    drawing::Canvas *canvas;
+    drawing::Canvas * canvas;
+    rendering::World * world;
+    rendering::Camera * camera;
+    std::Vector<data::Mesh>
 }
 
 
@@ -35,7 +41,7 @@
     self.lineWidth = 1;
     self.width = self.frame.size.width;
     self.height = self.frame.size.height;
-    canvas = new drawing::Canvas(1440, 900);
+    canvas = new drawing::Canvas(self.frame.size.width, self.frame.size.height);
 }
 
 
