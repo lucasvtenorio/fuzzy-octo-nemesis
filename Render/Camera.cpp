@@ -15,9 +15,16 @@ namespace rendering{
 
     Camera::Camera(const Point3D & position, const Vector3D & direction, const Vector3D & head){
         this->_position = position;
-        math::Vector d = direction.asVector().normalized();
-        math::Vector h = head.asVector();
-
+        this->direction = direction;
+        this->head = head;
+        
+        fixCamera();
+    }
+    
+    void Camera::fixCamera(){
+        math::Vector d = this->direction.asVector().normalized();
+        math::Vector h = this->head.asVector();
+        
         h = h - h.projection(d);
         h = h.normalized();
         

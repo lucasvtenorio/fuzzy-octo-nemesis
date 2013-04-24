@@ -28,6 +28,7 @@ namespace drawing {
         unsigned char * getBuffer();
         void draw(int x, int y, drawing::Color color);
         void drawLine(int x0, int y0, int x1, int y1, drawing::Color color);
+        void clear();
         
     };
 }

@@ -7,6 +7,7 @@
 //
 
 #include "Canvas.h"
+#include <cstring>
 
 namespace drawing {
 #pragma mark -
@@ -55,6 +56,10 @@ namespace drawing {
         buffer[(x * 4 + y * this->width * 4)  + 1] = color.g;
         buffer[(x * 4 + y * this->width * 4)  + 2] = color.b;
         buffer[(x * 4 + y * this->width * 4)  + 3] = color.a;
+    }
+    
+    void Canvas::clear(){
+        memset(this->buffer, 0, width*height*4);
     }
 
     void Canvas::drawLine(int x0, int y0, int x1, int y1, drawing::Color color) {

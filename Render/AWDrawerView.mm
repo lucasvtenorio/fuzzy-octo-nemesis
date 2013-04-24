@@ -17,7 +17,9 @@
 @implementation AWDrawerView {
     drawing::Canvas * canvas;
     rendering::World * world;
-    std::vector<data::Mesh> * mesh;
+    std::vector<data::Mesh*> meshes;
+    rendering::Camera * camera;
+    drawing::Rasterizer * rasterizer;
 }
 
 
@@ -42,7 +44,8 @@
     self.width = self.frame.size.width;
     self.height = self.frame.size.height;
     canvas = new drawing::Canvas(self.frame.size.width, self.frame.size.height);
-    
+    rasterizer = new drawing::Rasterizer(canvas);
+    [[self window] makeFirstResponder:self];
 }
 -(void) drawRect: (NSRect) bounds
 {
@@ -54,23 +57,41 @@
     glFlush();
 }
 
+- (BOOL) acceptsFirstResponder {
+    return YES;
+}
 
-
+- (void) keyDown:(NSEvent *)theEvent {
+    unsigned short keyCode = [theEvent keyCode];
+    if(keyCode == 0 || keyCode == 123){
+        camera->moveLeft();
+    } else if(keyCode == 13 || keyCode == 126){
+        //UP
+        camera->moveFront();
+    } else if(keyCode == 2 || keyCode == 124){
+        //RIGHT
+        camera->moveRight();
+    } else if(keyCode == 1 || keyCode == 125){
+        //DOWN
+        camera->moveBack();
+    }
+    canvas->clear();
+    rasterizer->rasterize(world, camera);
+    [self setNeedsDisplay:YES];
+}
 - (void) mouseDown:(NSEvent *)theEvent {
     //Metodo GAMBI para testar o render
-    NSString * pathCamera = [[NSBundle mainBundle] pathForResource:@"camera" ofType:@"cfg"];
-
-    rendering::PerspectiveCamera * camera = io::Reader::readCamera([pathCamera UTF8String]);
-
-    NSString * pathMesh = [[NSBundle mainBundle] pathForResource:@"objeto" ofType:@"byu"];
-
+    NSString * pathCamera = [[NSBundle mainBundle] pathForResource:@"COW" ofType:@"cfg"];
+    NSString * pathMesh = [[NSBundle mainBundle] pathForResource:@"COW" ofType:@"byu"];
     NSString * pathLight = [[NSBundle mainBundle] pathForResource:@"iluminacao" ofType:@"txt"];
 
+    camera = io::Reader::readCamera([pathCamera UTF8String]);
     std::pair<rendering::World *, std::vector<data::Mesh *> > worldMeshPair = io::Reader::readWorld([pathLight UTF8String], [pathMesh UTF8String]);
     
-    drawing::Rasterizer raster(canvas);
+    world = worldMeshPair.first;
+    meshes = worldMeshPair.second;
 
-    raster.rasterize(worldMeshPair.first, camera);
+    rasterizer->rasterize(world, camera);
     
     [self setNeedsDisplay:YES];
 }

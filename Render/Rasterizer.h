@@ -31,7 +31,7 @@ namespace drawing{
         }
         
         inline void drawPixel(int x, int y, double z, const Color & color){
-            if(valid(x, y) && 0 < z && z < zbuffer(x, y)){
+            if(valid(x, y) && z < zbuffer(x, y)){
                 canvas->draw(x, y, color);
                 zbuffer(x, y) = z;
             }
