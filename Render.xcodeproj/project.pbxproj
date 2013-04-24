@@ -175,7 +175,7 @@
 		0FCD12881725ED1B00CECBAA /* calice2.byu */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = calice2.byu; sourceTree = "<group>"; };
 		0FCD12891725ED1B00CECBAA /* camaro.byu */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = camaro.byu; sourceTree = "<group>"; };
 		0FCD128A1725ED1B00CECBAA /* casa.byu */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = casa.byu; sourceTree = "<group>"; };
-		0FCD128B1725ED1B00CECBAA /* CAT.byu */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = CAT.byu; sourceTree = "<group>"; };
+		0FCD128B1725ED1B00CECBAA /* CAT.byu */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file; name = CAT.byu; path = "../../../../../../../../Desktop/fuzzy-octo-nemesis/Render/Objetos/CAT.byu"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0FCD128C1725ED1B00CECBAA /* COW.byu */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = COW.byu; sourceTree = "<group>"; };
 		0FCD128D1725ED1B00CECBAA /* crusader.byu */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = crusader.byu; sourceTree = "<group>"; };
 		0FCD128E1725ED1B00CECBAA /* dalton.byu */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = dalton.byu; sourceTree = "<group>"; };

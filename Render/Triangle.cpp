@@ -19,6 +19,6 @@ namespace geometry{
         math::Vector a = bb.asVector() - aa.asVector();
         math::Vector b = cc.asVector() - aa.asVector();
 
-        return Vector3D(a(0), a(1), a(2))%Vector3D(b(0), b(1), b(2));
+        return (Vector3D(a(0), a(1), a(2))%Vector3D(b(0), b(1), b(2))).normalized();
     }
 }

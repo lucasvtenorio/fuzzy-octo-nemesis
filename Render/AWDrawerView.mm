@@ -67,8 +67,6 @@
     NSString * pathLight = [[NSBundle mainBundle] pathForResource:@"iluminacao" ofType:@"txt"];
 
     std::pair<rendering::World *, std::vector<data::Mesh *> > worldMeshPair = io::Reader::readWorld([pathLight UTF8String], [pathMesh UTF8String]);
-
-    printf("SIZE: %d %d\n", worldMeshPair.first->objects().size(), worldMeshPair.first->lights().size());
     
     drawing::Rasterizer raster(canvas);
 

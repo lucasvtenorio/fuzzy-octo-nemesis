@@ -81,7 +81,7 @@ namespace io {
         fscanf(lightFile, "%lf", &kd);
 
         fscanf(lightFile, "%lf %lf %lf", &x, &y, &z);
-        rendering::ColorVector od(255*x, 255*y, 255*z);
+        rendering::ColorVector od(x, y, z);
 
         fscanf(lightFile, "%lf", &ks);
 
