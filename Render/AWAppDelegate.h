@@ -7,9 +7,10 @@
 //
 
 #import <Cocoa/Cocoa.h>
-
+#import "AWDrawerView.h"
 @interface AWAppDelegate : NSObject <NSApplicationDelegate>
 
 @property (assign) IBOutlet NSWindow *window;
+@property (assign) IBOutlet AWDrawerView *drawerView;
 
 @end

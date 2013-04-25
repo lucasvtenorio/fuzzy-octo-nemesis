@@ -9,7 +9,7 @@
 #include "ColorVector.h"
 
 namespace rendering{
-    double clamp(double val, double min=0, double max=255){
+    inline double clamp(double val, double min=0, double max=255){
         if(val < min) return min;
         if(val > max) return max;
         return val;
@@ -27,7 +27,7 @@ namespace rendering{
     }
 
 
-    
+
     drawing::Color ColorVector::clip() const{
         return drawing::Color(byte(clamp(r())), byte(clamp(g())), byte(clamp(b())), byte(clamp(a())));
     }

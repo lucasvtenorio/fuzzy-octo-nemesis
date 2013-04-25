@@ -17,9 +17,12 @@
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
-//    NSImageView *view = [[NSImageView alloc] initWithFrame:CGRectMake(0.0, 0.0, 340.0, 340.0)];
-//    view.image = [NSImage imageNamed:@"teste.png"];
+    
+    NSString * cameraPath = [[NSBundle mainBundle] pathForResource:@"camera" ofType:@"cfg"];
+    NSString * objectPath = [[NSBundle mainBundle] pathForResource:@"objeto" ofType:@"byu"];
+    NSString * lightSourcePath = [[NSBundle mainBundle] pathForResource:@"iluminacao" ofType:@"txt"];
 
+    [self.drawerView loadResourcesWithCameraPath:cameraPath objectPath:objectPath andLightSourcePath:lightSourcePath];
     
 }
 

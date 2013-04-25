@@ -18,21 +18,21 @@
 namespace data{
     class Mesh{
     private:
-        std::vector<geometry::Point3D> pts;
-        std::vector<IndexedTriangle> idxT;
-        std::vector<geometry::Vector3D> _normals;
+        mutable std::vector<geometry::Point3D> pts;
+        mutable std::vector<IndexedTriangle> idxT;
+        mutable std::vector<geometry::Vector3D> _normals;
     public:
         Mesh();
 
-        inline std::vector<geometry::Point3D> & points(){
+        inline std::vector<geometry::Point3D> & points() const{
             return pts;
         }
         
-        inline std::vector<IndexedTriangle> & triangleIndexes(){
+        inline std::vector<IndexedTriangle> & triangleIndexes() const{
             return idxT;
         }
 
-        inline std::vector<geometry::Vector3D> & normals(){
+        inline std::vector<geometry::Vector3D> & normals() const{
             return _normals;
         }
         

@@ -12,7 +12,8 @@
 #include "Canvas.h"
 #include "World.h"
 #include "Camera.h"
-
+#include "dispatch/dispatch.h"
+typedef void(^RenderCallback)(void);
 namespace drawing{
     class Rasterizer{
     private:
@@ -38,6 +39,7 @@ namespace drawing{
         }
         
         void resetZBuffer();
+        inline bool outaSight(const geometry::Point2D & a, const geometry::Point2D & b, const geometry::Point2D & c) ;
         
     public:
         Rasterizer(Canvas * canvas, double SET_MAX_DEPTH=1e9);
@@ -48,6 +50,8 @@ namespace drawing{
          Assume que o zBuffer ja foi resetado e que todas as normais dos Meshs ja foram calculadas
         */
         void rasterize(rendering::World * world, rendering::Camera * camera);
+
+        void rasterizeAsync(rendering::World * world, rendering::Camera * camera, RenderCallback  callBack);
     };
 }
 

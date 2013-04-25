@@ -60,39 +60,55 @@
 - (BOOL) acceptsFirstResponder {
     return YES;
 }
+-(void) loadResourcesWithCameraPath:(NSString *) cameraPath objectPath:(NSString *) objectPath andLightSourcePath:(NSString *)lightSourcePath {
+    camera = io::Reader::readCamera([cameraPath UTF8String]);
+    std::pair<rendering::World *, std::vector<data::Mesh *> > worldMeshPair = io::Reader::readWorld([lightSourcePath UTF8String], [objectPath UTF8String]);
+    world = worldMeshPair.first;
+    meshes = worldMeshPair.second;
 
+    rasterizer->rasterizeAsync(world, camera, ^{
+        [self setNeedsDisplay:YES];
+    });
+}
 - (void) keyDown:(NSEvent *)theEvent {
     unsigned short keyCode = [theEvent keyCode];
     if(keyCode == 0 || keyCode == 123){
         camera->moveLeft();
     } else if(keyCode == 13 || keyCode == 126){
         //UP
-        camera->moveFront();
+        camera->moveFront(50);
     } else if(keyCode == 2 || keyCode == 124){
         //RIGHT
         camera->moveRight();
     } else if(keyCode == 1 || keyCode == 125){
         //DOWN
-        camera->moveBack();
+        camera->moveBack(50);
     }
     canvas->clear();
     rasterizer->rasterize(world, camera);
     [self setNeedsDisplay:YES];
+
+//        rasterizer->rasterizeAsync(world, camera, ^{
+//            [self setNeedsDisplay:YES];
+//        });
 }
 - (void) mouseDown:(NSEvent *)theEvent {
-    //Metodo GAMBI para testar o render
-    NSString * pathCamera = [[NSBundle mainBundle] pathForResource:@"COW" ofType:@"cfg"];
-    NSString * pathMesh = [[NSBundle mainBundle] pathForResource:@"COW" ofType:@"byu"];
-    NSString * pathLight = [[NSBundle mainBundle] pathForResource:@"iluminacao" ofType:@"txt"];
+//    //Metodo GAMBI para testar o render
+//    NSString * pathCamera = [[NSBundle mainBundle] pathForResource:@"camera" ofType:@"cfg"];
+//    NSString * pathMesh = [[NSBundle mainBundle] pathForResource:@"objeto" ofType:@"byu"];
+//    NSString * pathLight = [[NSBundle mainBundle] pathForResource:@"iluminacao" ofType:@"txt"];
+//
+//    camera = io::Reader::readCamera([pathCamera UTF8String]);
+//    std::pair<rendering::World *, std::vector<data::Mesh *> > worldMeshPair = io::Reader::readWorld([pathLight UTF8String], [pathMesh UTF8String]);
+//    
+//    world = worldMeshPair.first;
+//    meshes = worldMeshPair.second;
+//
+//    rasterizer->rasterizeAsync(world, camera, ^{
+//        [self setNeedsDisplay:YES];
+//    });
+//    //rasterizer->rasterize(world, camera);
 
-    camera = io::Reader::readCamera([pathCamera UTF8String]);
-    std::pair<rendering::World *, std::vector<data::Mesh *> > worldMeshPair = io::Reader::readWorld([pathLight UTF8String], [pathMesh UTF8String]);
-    
-    world = worldMeshPair.first;
-    meshes = worldMeshPair.second;
-
-    rasterizer->rasterize(world, camera);
-    
     [self setNeedsDisplay:YES];
 }
 
