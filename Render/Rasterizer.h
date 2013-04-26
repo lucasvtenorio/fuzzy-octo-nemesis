@@ -19,10 +19,23 @@ namespace drawing{
     private:
         Canvas * canvas;
         double * _zbuffer;
+        int * xBegin, *xEnd;
         int width, height;
         
         double MAX_DEPTH;
+
+        inline void setMin(int y, int x);
+        inline void setMax(int y, int x);
+
+        bool intersectWithScreen(const geometry::Point2D & aa, const geometry::Point2D & bb, geometry::Point2D & ret, int k);
+        void fillPointList(const geometry::Point2D & a, const geometry::Point2D & b, const geometry::Point2D & c, std::vector<geometry::Point2D> & list);
         
+        inline int clampScreen(int a);
+        void drawLine(int x0, int y0, int x1, int y1, double z, const drawing::Color & color);
+        void calcLine(int x0, int y0, int x1, int y1, bool mini);
+        bool inScreen(const geometry::Point2D & a);
+        void rasterizeTriangle(geometry::Point2D a, geometry::Point2D b, geometry::Point2D c);
+
         inline bool valid(int x, int y){
             return (0 <= x && x < width && 0 <= y && y < height);
         }

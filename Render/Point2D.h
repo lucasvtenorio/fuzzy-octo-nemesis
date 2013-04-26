@@ -48,7 +48,7 @@ namespace geometry{
             return ret;
         }
 
-        void print(){
+        void print() const{
             v.print();
         }
         friend class Transformation;

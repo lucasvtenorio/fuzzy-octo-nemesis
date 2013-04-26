@@ -66,9 +66,10 @@
     world = worldMeshPair.first;
     meshes = worldMeshPair.second;
 
-    rasterizer->rasterizeAsync(world, camera, ^{
+    rasterizer->rasterize(world, camera);
+    //rasterizer->rasterizeAsync(world, camera, ^{
         [self setNeedsDisplay:YES];
-    });
+    //});
 }
 - (void) keyDown:(NSEvent *)theEvent {
     unsigned short keyCode = [theEvent keyCode];

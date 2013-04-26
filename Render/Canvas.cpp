@@ -85,7 +85,8 @@ namespace drawing {
         } else {
             ystep = -1;
         }
-        for (int x = x0; x < x1; x++) {
+
+        for (int x = x0; x <= x1; x++) {
             if (steep) {
                 this->draw(y, x, color);
             }else {
