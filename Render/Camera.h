@@ -67,7 +67,19 @@ namespace rendering{
                 this->_position.y() += lateral.y()*dist;
                 this->_position.z() += lateral.z()*dist;
             }
+
+            inline void moveUp(double dist=1){
+                this->_position.x() += head.x()*dist;
+                this->_position.y() += head.y()*dist;
+                this->_position.z() += head.z()*dist;
+            }
         
+            inline void moveDown(double dist=1){
+                this->_position.x() -= head.x()*dist;
+                this->_position.y() -= head.y()*dist;
+                this->_position.z() -= head.z()*dist;
+            }
+
         void print(){
             _position.print();
             direction.print();

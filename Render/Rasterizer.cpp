@@ -14,6 +14,9 @@
 #include "PerspectiveCamera.h"
 
 namespace drawing{
+
+#pragma mark -
+#pragma mark Init/Dealloc
     Rasterizer::Rasterizer(Canvas * canvas, double SET_MAX_DEPTH){
         this->canvas = canvas;
         this->width = canvas->getWidth();
@@ -34,7 +37,8 @@ namespace drawing{
             this->_zbuffer[i] = MAX_DEPTH;
         }
     }
-
+#pragma mark -
+#pragma mark Baricentric Calculations
     math::Matrix getBaricentricTransformation(const geometry::Point2D & a, const geometry::Point2D & b, const geometry::Point2D & c){
         math::Vector ba = (b.asVector() - a.asVector());
         math::Vector ca = (c.asVector() - a.asVector());
@@ -58,7 +62,20 @@ namespace drawing{
         baric(2) = v(1);
         return baric;
     }
+    geometry::Point3D interpolate(const math::Vector & baricentric, const geometry::Point3D & a, const geometry::Point3D & b, const geometry::Point3D & c){
+        return geometry::Point3D(baricentric(0)*a.x() + baricentric(1)*b.x() + baricentric(2)*c.x(),
+                                 baricentric(0)*a.y() + baricentric(1)*b.y() + baricentric(2)*c.y(),
+                                 baricentric(0)*a.z() + baricentric(1)*b.z() + baricentric(2)*c.z());
+    }
 
+    geometry::Vector3D interpolate(const math::Vector & baricentric, const geometry::Vector3D & a, const geometry::Vector3D & b, const geometry::Vector3D & c){
+
+        return geometry::Vector3D(baricentric(0)*a.x() + baricentric(1)*b.x() + baricentric(2)*c.x(),
+                                  baricentric(0)*a.y() + baricentric(1)*b.y() + baricentric(2)*c.y(),
+                                  baricentric(0)*a.z() + baricentric(1)*b.z() + baricentric(2)*c.z());
+    }
+#pragma mark -
+#pragma mark Triangle Tests
     inline bool collinear(const geometry::Point2D & a, const geometry::Point2D & b, const geometry::Point2D & c){
         math::Vector ba = b.asVector() - a.asVector();
         math::Vector ca = c.asVector() - a.asVector();
@@ -96,19 +113,9 @@ namespace drawing{
         
         return false;
     }
-    geometry::Point3D interpolate(const math::Vector & baricentric, const geometry::Point3D & a, const geometry::Point3D & b, const geometry::Point3D & c){
-        return geometry::Point3D(baricentric(0)*a.x() + baricentric(1)*b.x() + baricentric(2)*c.x(),
-                                 baricentric(0)*a.y() + baricentric(1)*b.y() + baricentric(2)*c.y(),
-                                 baricentric(0)*a.z() + baricentric(1)*b.z() + baricentric(2)*c.z());
-    }
-
-    geometry::Vector3D interpolate(const math::Vector & baricentric, const geometry::Vector3D & a, const geometry::Vector3D & b, const geometry::Vector3D & c){
-
-        return geometry::Vector3D(baricentric(0)*a.x() + baricentric(1)*b.x() + baricentric(2)*c.x(),
-                                  baricentric(0)*a.y() + baricentric(1)*b.y() + baricentric(2)*c.y(),
-                                  baricentric(0)*a.z() + baricentric(1)*b.z() + baricentric(2)*c.z());
-    }
-
+    
+#pragma mark -
+#pragma mark Lighting
     rendering::ColorVector calculateDiffuse(rendering::World * world, rendering::Camera * camera, const data::Object & object, const geometry::Point3D & position, const geometry::Vector3D normal){
 
         using namespace rendering;
@@ -161,7 +168,9 @@ namespace drawing{
     rendering::ColorVector calculateAmbient(rendering::World * world, const data::Object & object){
         return world->ambientLightColor()*object.ambientCoefficient();
     }
-
+    
+#pragma mark -
+#pragma mark Util
     inline int Rasterizer::clampScreen(int a){
         if(a < 0){
             return 0;
@@ -172,17 +181,7 @@ namespace drawing{
         return a;
     }
 
-    void Rasterizer::setMin(int y, int x){
-        if(0 <= y && y < this->height){
-            this->xBegin[y] = clampScreen(x);
-        }
-    }
-
-    void Rasterizer::setMax(int y, int x){
-        if(0 <= y && y < this->height){
-            this->xEnd[y] = clampScreen(x);
-        }
-    }
+    
 
 
     void Rasterizer::drawLine(int x0, int y0, int x1, int y1, double z, const drawing::Color & color){
@@ -268,7 +267,13 @@ namespace drawing{
     double pv(const geometry::Point2D & v, const geometry::Point2D & u, const geometry::Point2D & c){
         return (v.x()-c.x()) * (u.y()-c.y()) - (u.x()-c.x())*(v.y() - c.y());
     }
-
+    
+    bool Rasterizer::inScreen(const geometry::Point2D & a){
+        if(0 <= a.x() && a.x() <= this->width && 0 <= a.y() && a.y() <= this->height){
+            return true;
+        }
+        return false;
+    }
     bool inTriangle(const geometry::Point2D & p, const geometry::Point2D & a, const geometry::Point2D & b, const geometry::Point2D & c){
         if(pv(p, b, a)*pv(p, c, a) < 0 && pv(p, c, b)*pv(p, a, b) < 0){
             return true;
@@ -276,6 +281,11 @@ namespace drawing{
             return false;
         }
     }
+
+    
+
+#pragma mark -
+#pragma mark Triangle Clipping
 
     void Rasterizer::rasterizeTriangle(geometry::Point2D pA, geometry::Point2D pB, geometry::Point2D pC){
 
@@ -308,12 +318,16 @@ namespace drawing{
             this->calcLine(pA.x(), pA.y(), pC.x(), pC.y(), false);
         }
     }
-
-    bool Rasterizer::inScreen(const geometry::Point2D & a){
-        if(0 <= a.x() && a.x() <= this->width && 0 <= a.y() && a.y() <= this->height){
-            return true;
+    void Rasterizer::setMin(int y, int x){
+        if(0 <= y && y < this->height){
+            this->xBegin[y] = clampScreen(x);
         }
-        return false;
+    }
+
+    void Rasterizer::setMax(int y, int x){
+        if(0 <= y && y < this->height){
+            this->xEnd[y] = clampScreen(x);
+        }
     }
 
     bool Rasterizer::intersectWithScreen(const geometry::Point2D & aa, const geometry::Point2D & bb, geometry::Point2D & ret, int k){
@@ -471,7 +485,8 @@ namespace drawing{
         rect.x() = 0;
         if(inTriangle(rect, a, b, c)) list.push_back(rect);
     }
-
+#pragma mark -
+#pragma mark Rasterization
     void Rasterizer::rasterize(rendering::World *world, rendering::Camera * camera){
         using namespace geometry;
 
@@ -506,12 +521,10 @@ namespace drawing{
 
                 pC.x() *= canvas->getWidth();
                 pC.y() *= canvas->getHeight();
-
-
                 
-                //if (outaSight(pA, pB, pC)) continue;
+                if (outaSight(pA, pB, pC)) continue;
                 if(collinear(pA, pB, pC)){
-                    this->drawLine(std::min(std::min(pA.x(), pB.x()), pC.x()), std::min(std::min(pA.y(), pB.y()), pC.y()), std::max(std::max(pA.x(), pB.x()), pC.x()), std::max(std::max(pA.y(), pB.y()), pC.y()), 0.01, Color(0, 255, 0));
+                    //this->drawLine(std::min(std::min(pA.x(), pB.x()), pC.x()), std::min(std::min(pA.y(), pB.y()), pC.y()), std::max(std::max(pA.x(), pB.x()), pC.x()), std::max(std::max(pA.y(), pB.y()), pC.y()), 0.01, Color(0, 255, 0));
                     continue;
                 }
 
@@ -553,12 +566,16 @@ namespace drawing{
 
                     int mini = std::min(std::min(pointList[0].y(), pointList[i+1].y()), pointList[i+2].y());
                     int maxi = std::max(std::max(pointList[0].y(), pointList[i+1].y()), pointList[i+2].y());
-                    //Color ccolor = Color(rand()%255, rand()%255, rand()%255);
+                    Color ccolor = Color(rand()%255, rand()%255, rand()%255);
+                    //rendering::ColorVector teste = rendering::ColorVector(rand()%255, rand()%255, rand()%255);
 
-                    mini = std::max(mini, 0);
-                    maxi = std::min(maxi, this->height - 1);
-                    
+//                    mini = std::max(mini, 0);
+//                    maxi = std::min(maxi, this->height - 1);
+
                     for(int y = mini; y <= maxi; y++){
+
+
+                        //X e Y já calculados, precisamos calcular a cor do ponto baseada na iluminacao
 
                         int minX = std::max(0, this->xBegin[y]);
                         int maxX = std::min(this->width, this->xEnd[y]);
@@ -567,7 +584,12 @@ namespace drawing{
                             math::Vector baricentric = getBaricentricCoordinates(Point2D(x + 0.5 - pA.x(), y + 0.5 -pA.y()), baric);
 
                             double depth = pA.depth() * baricentric(0) + pB.depth() * baricentric(1) + pC.depth() * baricentric(2);
-                            if(depth < 0 || depth > zbuffer(x, y)){
+                            rendering::PerspectiveCamera *p =(rendering::PerspectiveCamera *) camera;
+                            
+                            if(depth <= 0 || depth > zbuffer(x, y)){
+                                if (depth < 100 && depth <= zbuffer(x, y) && depth > 0) {
+                                    printf("depth :%lf\n",depth);
+                                }
                                 continue;
                             }
 

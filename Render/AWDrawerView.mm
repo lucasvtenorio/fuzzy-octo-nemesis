@@ -60,16 +60,43 @@
 - (BOOL) acceptsFirstResponder {
     return YES;
 }
--(void) loadResourcesWithCameraPath:(NSString *) cameraPath objectPath:(NSString *) objectPath andLightSourcePath:(NSString *)lightSourcePath {
-    camera = io::Reader::readCamera([cameraPath UTF8String]);
-    std::pair<rendering::World *, std::vector<data::Mesh *> > worldMeshPair = io::Reader::readWorld([lightSourcePath UTF8String], [objectPath UTF8String]);
-    world = worldMeshPair.first;
-    meshes = worldMeshPair.second;
+- (BOOL) ready {
+    return self.objectPath && self.lightSourcePath && self.cameraPath;
+}
+- (void)loadObjectWithPath:(NSString *)objectPath andLightSourcePath:(NSString *)lightSourcePath {
+    self.objectPath = objectPath;
+    self.lightSourcePath = lightSourcePath;
+    if ([self ready]) {
+        std::pair<rendering::World *, std::vector<data::Mesh *> > worldMeshPair = io::Reader::readWorld([self.lightSourcePath UTF8String], [self.objectPath UTF8String]);
+        world = worldMeshPair.first;
+        meshes = worldMeshPair.second;
+        
+    }
+}
+- (void)loadLightSourceWithPath:(NSString *) lightSourcePath {
+    [self loadObjectWithPath:self.objectPath andLightSourcePath:lightSourcePath];
+}
+- (void)loadObjectWithPath:(NSString *)objectPath {
+    [self loadObjectWithPath:objectPath andLightSourcePath:self.lightSourcePath];
+}
 
-    rasterizer->rasterize(world, camera);
-    //rasterizer->rasterizeAsync(world, camera, ^{
+- (void)loadCameraWithPath:(NSString *) cameraPath {
+    camera = io::Reader::readCamera([cameraPath UTF8String]);
+    self.cameraPath = cameraPath;
+}
+- (void)refresh {
+    if([self ready]) {
+        canvas->clear();
+        rasterizer->rasterize(world, camera);
         [self setNeedsDisplay:YES];
-    //});
+    }
+    
+}
+-(void) loadResourcesWithCameraPath:(NSString *) cameraPath objectPath:(NSString *) objectPath andLightSourcePath:(NSString *)lightSourcePath {
+    [self loadCameraWithPath:cameraPath];
+    [self loadLightSourceWithPath:lightSourcePath];
+    [self loadObjectWithPath:objectPath];
+    [self refresh];
 }
 - (void) keyDown:(NSEvent *)theEvent {
     unsigned short keyCode = [theEvent keyCode];
@@ -85,30 +112,11 @@
         //DOWN
         camera->moveBack(50);
     }
-    canvas->clear();
-    rasterizer->rasterize(world, camera);
-    [self setNeedsDisplay:YES];
+    
+    [self refresh];
 
-//        rasterizer->rasterizeAsync(world, camera, ^{
-//            [self setNeedsDisplay:YES];
-//        });
 }
 - (void) mouseDown:(NSEvent *)theEvent {
-//    //Metodo GAMBI para testar o render
-//    NSString * pathCamera = [[NSBundle mainBundle] pathForResource:@"camera" ofType:@"cfg"];
-//    NSString * pathMesh = [[NSBundle mainBundle] pathForResource:@"objeto" ofType:@"byu"];
-//    NSString * pathLight = [[NSBundle mainBundle] pathForResource:@"iluminacao" ofType:@"txt"];
-//
-//    camera = io::Reader::readCamera([pathCamera UTF8String]);
-//    std::pair<rendering::World *, std::vector<data::Mesh *> > worldMeshPair = io::Reader::readWorld([pathLight UTF8String], [pathMesh UTF8String]);
-//    
-//    world = worldMeshPair.first;
-//    meshes = worldMeshPair.second;
-//
-//    rasterizer->rasterizeAsync(world, camera, ^{
-//        [self setNeedsDisplay:YES];
-//    });
-//    //rasterizer->rasterize(world, camera);
 
     [self setNeedsDisplay:YES];
 }

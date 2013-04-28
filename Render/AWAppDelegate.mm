@@ -37,15 +37,32 @@
     [panel beginSheetModalForWindow:self.window completionHandler:^(NSInteger result) {
         if (result == NSFileHandlingPanelOKButton) {
             for (NSURL *url in [panel URLs]) {
-                // do something with the url here.
+                NSString *extension = [url pathExtension];
+
+                if ([extension isEqualToString:@"cfg"]) {
+                    [self.drawerView loadCameraWithPath:[url path]];
+                    [self.drawerView refresh];
+                } else if ([extension isEqualToString:@"byu"]) {
+                    [self.drawerView loadObjectWithPath:[url path]];
+                    [self.drawerView refresh];
+                } else if ([extension isEqualToString:@"txt"]) {
+                    [self.drawerView loadLightSourceWithPath:[url path]];
+                    [self.drawerView refresh];
+                }
             }
         }
     }];
 }
 - (BOOL) panel:(id)sender validateURL:(NSURL *)url error:(NSError *__autoreleasing *)outError {
-    NSLog(@"Should Validate: %@", url);
+    NSString *extension = [url pathExtension];
     
-
+    if ([extension isEqualToString:@"cfg"]) {
+        return YES;
+    } else if ([extension isEqualToString:@"byu"]) {
+        return YES;
+    } else if ([extension isEqualToString:@"txt"]) {
+        return YES;
+    }
     NSBeep();
     return NO;
 }

@@ -37,7 +37,32 @@ namespace rendering{
         inline const ColorVector & color() const{
             return col;
         }
-        
+
+
+
+        inline void moveFront(double dist=1){
+            this->pos.x() += dist;
+            this->pos.y() += dist;
+            this->pos.z() += dist;
+        }
+
+        inline void moveBack(double dist=1){
+            this->pos.x() -= dist;
+            this->pos.y() -= dist;
+            this->pos.z() -= dist;
+        }
+
+        inline void moveLeft(double dist=1){
+            this->pos.x() -= dist;
+            this->pos.y() -= dist;
+            this->pos.z() -= dist;
+        }
+
+        inline void moveRight(double dist=1){
+            this->pos.x() += dist;
+            this->pos.y() += dist;
+            this->pos.z() += dist;
+        }
 
     };
 }

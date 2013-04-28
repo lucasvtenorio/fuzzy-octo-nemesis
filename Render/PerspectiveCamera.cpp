@@ -24,7 +24,7 @@ namespace rendering{
         double y = p*head.asVector();
         double z = p*direction.asVector();
 
-        if (z < focalDistance) return Point2D(-2, -2, -2);
+        if (z < focalDistance) return Point2D(-900000, -90000, -900000);
 
         double fx = ((x*this->focalDistance)/(z*this->cameraWidth) + 1)/2;
         double fy = ((y*this->focalDistance)/(z*this->cameraHeight) + 1)/2;
