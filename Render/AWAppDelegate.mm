@@ -26,4 +26,27 @@
     
 }
 
+- (IBAction)openFile:(id)sender {
+    NSOpenPanel *panel = [NSOpenPanel openPanel];
+    [panel setCanChooseFiles:YES];
+    [panel setCanChooseDirectories:NO];
+    [panel setAllowsMultipleSelection:NO];
+    [panel setAllowedFileTypes:@[@"cfg", @"byu", @"txt"]];
+    [panel setDelegate:self];
+
+    [panel beginSheetModalForWindow:self.window completionHandler:^(NSInteger result) {
+        if (result == NSFileHandlingPanelOKButton) {
+            for (NSURL *url in [panel URLs]) {
+                // do something with the url here.
+            }
+        }
+    }];
+}
+- (BOOL) panel:(id)sender validateURL:(NSURL *)url error:(NSError *__autoreleasing *)outError {
+    NSLog(@"Should Validate: %@", url);
+    
+
+    NSBeep();
+    return NO;
+}
 @end

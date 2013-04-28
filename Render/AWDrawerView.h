@@ -15,6 +15,9 @@
 @property (nonatomic) int height;
 @property (nonatomic) int lineWidth;
 
+@property (nonatomic, strong) NSString *objectPath;
+@property (nonatomic, strong) NSString *cameraPath;
+@property (nonatomic, strong) NSString *lightSourcePath;
 
 -(void) loadResourcesWithCameraPath:(NSString *) cameraPath objectPath:(NSString *) objectPath andLightSourcePath:(NSString *)lightSourcePath;
 @end

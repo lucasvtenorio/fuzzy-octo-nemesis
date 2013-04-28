@@ -28,7 +28,6 @@
 		02C4C998170DCF0C001B2FC5 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 02C4C996170DCF0C001B2FC5 /* Credits.rtf */; };
 		02C4C99B170DCF0C001B2FC5 /* AWAppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 02C4C99A170DCF0C001B2FC5 /* AWAppDelegate.mm */; };
 		02C4C99E170DCF0C001B2FC5 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 02C4C99C170DCF0C001B2FC5 /* MainMenu.xib */; };
-		02C4C9A5170DD094001B2FC5 /* teste.png in Resources */ = {isa = PBXBuildFile; fileRef = 02C4C9A4170DD094001B2FC5 /* teste.png */; };
 		02C4C9A8170DE6EC001B2FC5 /* AWDrawerView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 02C4C9A7170DE6EC001B2FC5 /* AWDrawerView.mm */; };
 		02C4C9AA170DE7A1001B2FC5 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02C4C9A9170DE7A1001B2FC5 /* OpenGL.framework */; };
 		02F38D741714495B0016A540 /* Matrix.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 02F38D721714495B0016A540 /* Matrix.cpp */; };
@@ -131,7 +130,6 @@
 		02C4C999170DCF0C001B2FC5 /* AWAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AWAppDelegate.h; sourceTree = "<group>"; };
 		02C4C99A170DCF0C001B2FC5 /* AWAppDelegate.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = AWAppDelegate.mm; sourceTree = "<group>"; };
 		02C4C99D170DCF0C001B2FC5 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
-		02C4C9A4170DD094001B2FC5 /* teste.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = teste.png; sourceTree = "<group>"; };
 		02C4C9A6170DE6EC001B2FC5 /* AWDrawerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWDrawerView.h; sourceTree = "<group>"; };
 		02C4C9A7170DE6EC001B2FC5 /* AWDrawerView.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = AWDrawerView.mm; sourceTree = "<group>"; };
 		02C4C9A9170DE7A1001B2FC5 /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
@@ -327,13 +325,8 @@
 				0232068D171DE9500014C782 /* rendering */,
 				0232067D171DCE730014C782 /* geometry */,
 				02F38D71171449480016A540 /* math */,
-				02C4C9A4170DD094001B2FC5 /* teste.png */,
-				02C4C999170DCF0C001B2FC5 /* AWAppDelegate.h */,
-				02C4C99A170DCF0C001B2FC5 /* AWAppDelegate.mm */,
-				02C4C99C170DCF0C001B2FC5 /* MainMenu.xib */,
+				02EED2C3172CB80E00CFC973 /* UI */,
 				02C4C98E170DCF0C001B2FC5 /* Supporting Files */,
-				02C4C9A6170DE6EC001B2FC5 /* AWDrawerView.h */,
-				02C4C9A7170DE6EC001B2FC5 /* AWDrawerView.mm */,
 			);
 			path = Render;
 			sourceTree = "<group>";
@@ -356,6 +349,18 @@
 				02C4C996170DCF0C001B2FC5 /* Credits.rtf */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		02EED2C3172CB80E00CFC973 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				02C4C999170DCF0C001B2FC5 /* AWAppDelegate.h */,
+				02C4C99A170DCF0C001B2FC5 /* AWAppDelegate.mm */,
+				02C4C99C170DCF0C001B2FC5 /* MainMenu.xib */,
+				02C4C9A6170DE6EC001B2FC5 /* AWDrawerView.h */,
+				02C4C9A7170DE6EC001B2FC5 /* AWDrawerView.mm */,
+			);
+			name = UI;
 			sourceTree = "<group>";
 		};
 		02F38D71171449480016A540 /* math */ = {
@@ -482,7 +487,6 @@
 				02C4C992170DCF0C001B2FC5 /* InfoPlist.strings in Resources */,
 				02C4C998170DCF0C001B2FC5 /* Credits.rtf in Resources */,
 				02C4C99E170DCF0C001B2FC5 /* MainMenu.xib in Resources */,
-				02C4C9A5170DD094001B2FC5 /* teste.png in Resources */,
 				0206EE401720AE72008F5E51 /* camera.cfg in Resources */,
 				0FCD126A1725ECCD00CECBAA /* objeto.byu in Resources */,
 				0FCD126C1725ED0500CECBAA /* iluminacao.txt in Resources */,

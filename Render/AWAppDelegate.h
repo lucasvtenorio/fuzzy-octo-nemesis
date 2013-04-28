@@ -8,9 +8,10 @@
 
 #import <Cocoa/Cocoa.h>
 #import "AWDrawerView.h"
-@interface AWAppDelegate : NSObject <NSApplicationDelegate>
+@interface AWAppDelegate : NSObject <NSApplicationDelegate, NSOpenSavePanelDelegate>
 
 @property (assign) IBOutlet NSWindow *window;
 @property (assign) IBOutlet AWDrawerView *drawerView;
+- (IBAction)openFile:(id)sender;
 
 @end

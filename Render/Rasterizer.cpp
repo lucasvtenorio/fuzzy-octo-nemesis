@@ -124,7 +124,10 @@ namespace drawing{
 
             if(t > 0){
                 double coef = t * object.diffuseCoefficient();
-                color = color + ColorVector(object.color().r()*light.color().r() + object.color().g()*light.color().g() + object.color().b()*light.color().b())*coef;
+
+                ColorVector temp = ColorVector(object.color().r()*light.color().r() , object.color().g()*light.color().g() , object.color().b()*light.color().b());
+                //temp.print();
+                color = color + temp*coef;
             }
         }
         return color;
@@ -476,11 +479,10 @@ namespace drawing{
 
         for(int object_id = 0; object_id < world->objects().size(); object_id++){
             data::Object object = world->objects()[object_id];
-            //printf("Object_id: %d/%d", object_id, world->objects().size());
             for(int triangle_id = 0; triangle_id <
                 object.mesh().triangleIndexes().size(); triangle_id++){
 
-                if(triangle_id%1000 == 0) printf("Triangle_id: %d/%d\n", triangle_id, object.mesh().triangleIndexes().size());
+                //if(triangle_id%1000 == 0) printf("Triangle_id: %d/%d\n", triangle_id, object.mesh().triangleIndexes().size());
                 data::IndexedTriangle indexedTriangle = object.mesh().triangleIndexes()[triangle_id];
                 geometry::Triangle triangle = object.mesh().getTriangle(indexedTriangle);
 
@@ -510,6 +512,7 @@ namespace drawing{
                 //if (outaSight(pA, pB, pC)) continue;
                 if(collinear(pA, pB, pC)){
                     this->drawLine(std::min(std::min(pA.x(), pB.x()), pC.x()), std::min(std::min(pA.y(), pB.y()), pC.y()), std::max(std::max(pA.x(), pB.x()), pC.x()), std::max(std::max(pA.y(), pB.y()), pC.y()), 0.01, Color(0, 255, 0));
+                    continue;
                 }
 
                 //Manual sorting == Sort dos manos
@@ -551,8 +554,16 @@ namespace drawing{
                     int mini = std::min(std::min(pointList[0].y(), pointList[i+1].y()), pointList[i+2].y());
                     int maxi = std::max(std::max(pointList[0].y(), pointList[i+1].y()), pointList[i+2].y());
                     //Color ccolor = Color(rand()%255, rand()%255, rand()%255);
+
+                    mini = std::max(mini, 0);
+                    maxi = std::min(maxi, this->height - 1);
+                    
                     for(int y = mini; y <= maxi; y++){
-                        for(int x = this->xBegin[y]; x <= this->xEnd[y]; x++){
+
+                        int minX = std::max(0, this->xBegin[y]);
+                        int maxX = std::min(this->width, this->xEnd[y]);
+
+                        for(int x = minX; x <= maxX; x++){
                             math::Vector baricentric = getBaricentricCoordinates(Point2D(x + 0.5 - pA.x(), y + 0.5 -pA.y()), baric);
 
                             double depth = pA.depth() * baricentric(0) + pB.depth() * baricentric(1) + pC.depth() * baricentric(2);
